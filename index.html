@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVX Systems | Optimisation ECU & Diagnostic Batteries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-bg: #f6f8fa;
+      --clr-header: #24292f;
+      --clr-accent: #2da44e;
+      --clr-link: #0969da;
+      --clr-text: #222;
+      --clr-card: #fff;
+      --shadow: 0 2px 8px rgba(36,41,47,0.06);
+      --radius: 10px;
+      --max-width: 960px;
+    }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--clr-header);
+      color: #fff;
+      padding: 0.75rem 0;
+      box-shadow: var(--shadow);
+    }
+    .header-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .logo img {
+      height: 42px;
+      vertical-align: middle;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 2rem;
+      font-size: 1.08rem;
+      transition: color .2s;
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+    }
+    .hero-text {
+      flex: 1 1 340px;
+      min-width: 280px;
+    }
+    .hero-text h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--clr-header);
+    }
+    .hero-text p {
+      font-size: 1.17rem;
+      margin-bottom: 2rem;
+      color: #344563;
+    }
+    .btn {
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .18s;
+    }
+    .btn:hover {
+      background: #238636;
+    }
+    .hero-img img {
+      max-width: 260px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(45,164,78,0.07);
+      margin-left: 2rem;
+      background: #e3f7ed;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+    .card {
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: left;
+      padding: 2rem 1.3rem 1.7rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 270px;
+      position: relative;
+    }
+    .card img {
+      width: 54px;
+      margin-bottom: 1.1rem;
+    }
+    .card h3 {
+      font-size: 1.18rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--clr-accent);
+    }
+    .card p {
+      color: #4b5765;
+      font-size: 1.01rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding: 1.2rem 0;
+      text-align: center;
+      font-size: .97rem;
+      background: var(--clr-bg);
+      color: #768390;
+      border-top: 1px solid #e2e8f0;
+    }
+    @media (max-width: 680px) {
+      .header-container, main {
+        padding: 0 1rem;
+      }
+      .hero {
+        flex-direction: column;
+        padding: 1.3rem 0.7rem;
+      }
+      .hero-img img {
+        margin-left: 0;
+        margin-top: 2rem;
+        width: 80vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="REVX Systems logo">
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Optimisation ECU & Diagnostic Batteries</h1>
+        <p>Boostez les performances de vos véhicules thermiques et électriques. Reprogrammation, débridage, conversion E85, et diagnostic/réparation de batteries lithium. <br>Service sur mesure & conseil expert.</p>
+        <a href="#contact" class="btn">Demander un devis</a>
+      </div>
+      <div class="hero-img">
+        <img src="assets/hero-image.png" alt="Illustration technique ECU et batterie">
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 style="margin-bottom:1.5rem; color:#222; font-weight:600;">Nos Services</h2>
+      <div class="services">
+        <div class="card">
+          <img src="assets/icon-ecu.png" alt="Reprogrammation ECU">
+          <h3>Interventions ECU Thermique</h3>
+          <p>Reprogrammation Stage 1, débridage vitesse courte, conversion E85, et fichiers sur mesure pour tous modèles. <br><a href="#contact" style="color:var(--clr-link);text-decoration:underline;">Demander un fichier</a></p>
+        </div>
+        <div class="card">
+          <img src="assets/icon-battery.png" alt="Diagnostic Batterie">
+          <h3>Véhicules Électriques & Batteries</h3>
+          <p>Diagnostic, réparation et reconditionnement de batteries lithium, optimisation des contrôleurs, études personnalisées.</p>
+        </div>
+        <div class="card">
+          <img src="assets/icon-custom.png" alt="Étude personnalisée">
+          <h3>Étude Sur Mesure</h3>
+          <p>Autres interventions ou diagnostics spécifiques : étude personnalisée selon vos besoins techniques.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> REVX Systems – Micro-entreprise non soumise à la TVA (art. 293B CGI) – contact@revx-systems.fr
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
