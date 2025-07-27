@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | REVX Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-bg: #f6f8fa;
+      --clr-header: #181D20;
+      --clr-accent: #2da44e;
+      --clr-link: #0969da;
+      --clr-text: #222;
+      --clr-card: #fff;
+      --shadow: 0 2px 8px rgba(36,41,47,0.06);
+      --radius: 12px;
+      --max-width: 480px;
+    }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--clr-header);
+      color: #fff;
+      padding: 0.9rem 0;
+      box-shadow: var(--shadow);
+    }
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .logo img {
+      height: 48px;
+      vertical-align: middle;
+      display: block;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 2rem;
+      font-size: 1.09rem;
+      transition: color .2s;
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 80vh;
+      padding: 3.5rem 0 2rem 0;
+    }
+    .contact-card {
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: var(--max-width);
+      width: 100%;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-card h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--clr-header);
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+    .contact-info {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    .contact-info p {
+      font-size: 1.11rem;
+      color: #33404f;
+      margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .contact-info a {
+      color: var(--clr-link);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .contact-form {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #555;
+      font-weight: 500;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.1rem;
+      border: 1.2px solid #e2e4e8;
+      border-radius: 7px;
+      font-size: 1.03rem;
+      background: #f9fbfc;
+      font-family: inherit;
+      transition: border 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--clr-accent);
+      outline: none;
+    }
+    .btn {
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 0.75rem 2.1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 12px #e3f7ed77;
+      transition: background .18s;
+    }
+    .btn:hover {
+      background: #238636;
+    }
+    @media (max-width: 600px) {
+      .header-container { padding: 0 1rem; }
+      .contact-card { padding: 1.1rem 0.5rem 1rem 0.5rem; }
+      main { padding: 1.3rem 0 1.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="REVX Systems logo">
+      </div>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="#contact" style="color: var(--clr-accent); font-weight:600;">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="contact-card">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p>📧 <b>E-mail :</b> <a href="mailto:contact@revx-systems.fr">contact@revx-systems.fr</a></p>
+        <p>💬 <b>WhatsApp&nbsp;:</b>
+          <a href="https://wa.me/33954207754" target="_blank" rel="noopener">+33&nbsp;9&nbsp;54&nbsp;20&nbsp;77&nbsp;54</a>
+        </p>
+        <p style="color:#577;">Réponse rapide (souvent dans la journée)</p>
+      </div>
+      <form class="contact-form" action="mailto:contact@revx-systems.fr" method="POST" enctype="text/plain">
+        <label for="nom">Votre nom</label>
+        <input type="text" id="nom" name="Nom" required>
+        <label for="email">Votre email</label>
+        <input type="email" id="email" name="Email" required>
+        <label for="message">Votre message</label>
+        <textarea id="message" name="Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+      <div style="margin-top:1.8rem; color:#888; font-size:.96rem; text-align:center;">
+        Ou contactez-moi directement par e-mail ou WhatsApp pour un échange rapide.<br>
+        REVX Systems – Conseils & interventions sur mesure.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
