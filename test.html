@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVX | ECU Remapping & Automotive Electronics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-bg: #0b1623;
+      --clr-header: #0b1623;
+      --clr-accent: #ff7a2f;
+      --clr-link: #fff;
+      --clr-text: #fff;
+      --clr-card: #172133;
+      --clr-card-title: #fff;
+      --clr-card-desc: #b8c2d9;
+      --shadow: 0 2px 16px rgba(0,0,0,0.18);
+      --radius: 18px;
+      --max-width: 1100px;
+    }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--clr-header);
+      color: #fff;
+      padding: 2.2rem 0 1.2rem 0;
+    }
+    .header-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .logo img {
+      height: 38px;
+      vertical-align: middle;
+      display: block;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.13rem;
+      transition: color .2s;
+      opacity: 0.85;
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+      opacity: 1;
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .hero-text {
+      flex: 1 1 420px;
+      min-width: 320px;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+    .hero-text p {
+      font-size: 1.25rem;
+      color: #b8c2d9;
+      margin-bottom: 2.2rem;
+      max-width: 480px;
+    }
+    .btn {
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 1rem 2.2rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1.15rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .18s;
+      box-shadow: 0 2px 12px #ff7a2f33;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #ff6600;
+    }
+    .hero-img img {
+      max-width: 370px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #0b1623cc;
+      background: #101b2a;
+      display: block;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .service-card {
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 1.5rem 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 180px;
+      border: none;
+      transition: box-shadow 0.15s, transform 0.12s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px #ff7a2f33, var(--shadow);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .service-card .icon {
+      font-size: 2.3rem;
+      margin-bottom: 1.1rem;
+      color: var(--clr-accent);
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--clr-card-title);
+      margin-bottom: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .service-card p {
+      color: var(--clr-card-desc);
+      font-size: 1.05rem;
+      margin: 0;
+    }
+    footer {
+      margin-top: 2rem;
+      padding: 1.2rem 0;
+      text-align: center;
+      font-size: .97rem;
+      background: var(--clr-bg);
+      color: #b8c2d9;
+      border-top: 1px solid #1a2538;
+    }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; align-items: flex-start; }
+      .hero-img img { margin: 0 auto; }
+      .header-container { flex-direction: column; gap: 1.2rem; }
+    }
+    @media (max-width: 600px) {
+      .header-container, main { padding: 0 1rem; }
+      .hero { margin-top: 1.2rem; }
+      .services-grid { gap: 1.2rem; }
+      .service-card { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="REVX logo">
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>ECU REMAPPING<br>& AUTOMOTIVE ELECTRONICS</h1>
+        <p>Optimizing performance through cutting-edge technology.</p>
+        <a href="contact.html" class="btn">Get Started</a>
+      </div>
+      <div class="hero-img">
+        <img src="assets/hero-image.png" alt="Car illustration">
+      </div>
+    </section>
+    <section id="services">
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="icon">🖥️</span>
+          <h3>ECU SOFTWARE TUNING</h3>
+          <p>Enhancing engine performance and efficiency</p>
+        </div>
+        <div class="service-card">
+          <span class="icon">⚡</span>
+          <h3>ELECTRIC VEHICLE TUNING</h3>
+          <p>Custom tuning solutions for EV powertrains</p>
+        </div>
+        <div class="service-card">
+          <span class="icon">💻</span>
+          <h3>ADVANCED DIAGNOSTICS</h3>
+          <p>Comprehensive electronic system analysis</p>
+        </div>
+        <div class="service-card">
+          <span class="icon">🎧</span>
+          <h3>REMOTE SUPPORT</h3>
+          <p>Expert assistance anytime, anywhere</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; <span id="year"></span> REVX Systems – contact@revx-systems.fr
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
