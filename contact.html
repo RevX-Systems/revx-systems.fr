@@ -155,16 +155,18 @@
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">
         <img src="assets/logo.png" alt="REVX Systems logo">
-      </div>
-      <nav>
-        <a href="index.html">Accueil</a>
-        <a href="#contact" style="color: var(--clr-accent); font-weight:600;">Contact</a>
-      </nav>
+      </a>
     </div>
-  </header>
+    <nav>
+      <a href="index.html">Services</a>
+      <a href="contact.html" style="color: var(--clr-accent); font-weight:600;">Contact</a>
+    </nav>
+  </div>
+</header>
   <main>
     <section class="contact-card">
       <h2>Contact</h2>
@@ -173,17 +175,19 @@
         <p>💬 <b>WhatsApp&nbsp;:</b>
           <a href="https://wa.me/33954207754" target="_blank" rel="noopener">+33&nbsp;9&nbsp;54&nbsp;20&nbsp;77&nbsp;54</a>
         </p>
-        <p style="color:#577;">Réponse rapide (souvent dans la journée)</p>
+        <p style="color:#577;">Réponse rapide</p>
       </div>
-      <form class="contact-form" action="mailto:contact@revx-systems.fr" method="POST" enctype="text/plain">
-        <label for="nom">Votre nom</label>
-        <input type="text" id="nom" name="Nom" required>
-        <label for="email">Votre email</label>
-        <input type="email" id="email" name="Email" required>
-        <label for="message">Votre message</label>
-        <textarea id="message" name="Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Envoyer</button>
-      </form>
+      <form class="contact-form" action="https://formsubmit.co/contact@revx-systems.fr" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="merci.html">
+  <label for="nom">Votre nom</label>
+  <input type="text" id="nom" name="Nom" required>
+  <label for="email">Votre email</label>
+  <input type="email" id="email" name="Email" required>
+  <label for="message">Votre message</label>
+  <textarea id="message" name="Message" rows="5" required></textarea>
+  <button type="submit" class="btn">Envoyer</button>
+</form>
       <div style="margin-top:1.8rem; color:#888; font-size:.96rem; text-align:center;">
         Ou contactez-moi directement par e-mail ou WhatsApp pour un échange rapide.<br>
         REVX Systems – Conseils & interventions sur mesure.
