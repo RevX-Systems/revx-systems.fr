@@ -25,34 +25,43 @@
       min-height: 100vh;
     }
     header {
-      background: var(--clr-header);
-      color: #fff;
-      padding: 0.9rem 0;
-      box-shadow: var(--shadow);
-    }
-    .header-container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-    }
-    .logo img {
-      height: 48px;
-      vertical-align: middle;
-      display: block;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 2rem;
-      font-size: 1.09rem;
-      transition: color .2s;
-    }
-    nav a:hover {
-      color: var(--clr-accent);
+    background: var(--clr-header);
+    color: #fff;
+    padding: 0.9rem 0;
+    box-shadow: var(--shadow);
+  }
+  .header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    min-height: 64px; /* Ajoute une hauteur minimale pour la cohérence */
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 48px;
+    vertical-align: middle;
+    display: block;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2rem;
+    font-size: 1.09rem;
+    transition: color .2s;
+  }
+  nav a:hover {
+    color: var(--clr-accent);
     }
     main {
       display: flex;
