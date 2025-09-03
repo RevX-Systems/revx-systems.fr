@@ -245,8 +245,14 @@
     <!-- WAITLIST / CONTACT DARK -->
     <section id="waitlist" class="cta wrap" aria-labelledby="wl-title" style="padding: 28px;">
       <h2 id="wl-title" style="margin-top:0">Rejoindre la liste pilote</h2>
-      <p class="sub" style="margin-top:-6px">Nous vous contactons dès l’ouverture des tests terrain. Places limitées.</p>
-      <form action="#" method="post" aria-describedby="wl-note">
+      <p class="sub" style="margin-top:-6px">Nous vous contactons dès l'ouverture des tests terrain. Places limitées.</p>
+      <form action="https://formsubmit.co/contact@revx-systems.fr" method="POST" aria-describedby="wl-note">
+        <!-- Configuration FormSubmit -->
+        <input type="hidden" name="_subject" value="Nouvelle inscription liste pilote REVX Systems">
+        <input type="hidden" name="_next" value="https://revx-systems.fr/merci.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        
         <div class="span-3">
           <label for="name">Nom / Société</label>
           <input id="name" name="name" type="text" placeholder="Garage Durand / Durand Motors" required />
@@ -272,7 +278,7 @@
           <textarea id="msg" name="msg" placeholder="Disponibilités, localisation, contraintes…"></textarea>
         </div>
         <div class="span-6">
-          <button class="btn btn-primary" type="submit">M’inscrire sur la liste</button>
+          <button class="btn btn-primary" type="submit">M'inscrire sur la liste</button>
         </div>
         <p id="wl-note" class="sub" style="grid-column: 1 / -1">Aucune vente avant validation technique. Vous pourrez vous désinscrire à tout moment.</p>
       </form>
