@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REVX Systems | Optimisation ECU &amp; Diagnostic Batteries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-bg: #0d1724;
+      --clr-header: #0a1420;
+      --clr-card: #ffffff;
+      --clr-text-dark: #0f1f3c;
+      --clr-text-light: #5f6d85;
+      --clr-accent: #ff7a2f;
+      --clr-accent2: #ff6600;
+      --radius: 18px;
+      --max-width: 1020px;
+      --shadow-deep: 0 60px 120px -20px rgba(15, 40, 90, 0.45);
+      --shadow-soft: 0 30px 60px -10px rgba(0,0,0,0.35);
+      --transition: .18s ease;
+      font-family: 'Inter', system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background: linear-gradient(135deg, #1f2a40 0%, #0f172d 55%, #202a44 100%);
+      min-height:100vh;
+      color: #eaf6ff;
+      line-height:1.35;
+    }
+
+    /* wrapper "page posée" */
+    .background-root {
+      padding: 180px 16px 100px; /* anciennement 80px */
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:0;
+    }
+    .frame {
+      position: relative;
+      width:100%;
+      max-width: var(--max-width);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--clr-bg);
+      box-shadow:
+        var(--shadow-deep),
+        var(--shadow-soft),
+        0 2px 18px rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: saturate(140%) blur(3px);
+    }
+    .frame::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background: linear-gradient(145deg,
+        rgba(255,255,255,0.015) 0%,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,0.01) 100%);
+      mix-blend-mode: overlay;
+    }
+    header {
+  background: rgba(10, 20, 32, 0.72); /* Translucent header */
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+    .header-container {
+      max-width: var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 1.5rem;
+      gap:1rem;
+      min-height:100px;
+    }
+    .logo img {
+      height:52px;
+      display:block;
+    }
+    nav {
+      display:flex;
+      gap:1.8rem;
+      flex-wrap:wrap;
+      font-size:1rem;
+    }
+    nav a {
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:6px 0;
+      position:relative;
+      opacity:.9;
+      transition:opacity var(--transition), color var(--transition);
+    }
+    nav a.active,
+    nav a:hover {
+      color: var(--clr-accent);
+      opacity:1;
+    }
+
+    main {
+      padding:1rem 1.5rem 2rem;
+      max-width: var(--max-width);
+      margin:0 auto;
+      position: relative;
+      z-index:1;
+    }
+    .hero {
+      display:flex;
+      flex-wrap:wrap;
+      gap:1.5rem;
+      align-items:center;
+      padding:1rem 0 1rem;
+    }
+    .hero-text {
+      flex:1 1 380px;
+      min-width:260px;
+    }
+    .hero-text h1 {
+      font-size:2.6rem;
+      font-weight:700;
+      margin:0 0 .5rem;
+      line-height:1.05;
+      letter-spacing:-0.8px;
+      color:#fff;
+    }
+    .hero-text p {
+      margin:0 0 1rem;
+      font-size:1.1rem;
+      color: #c2d1eb;
+      max-width:560px;
+    }
+    .btn {
+      display:inline-block;
+      background: var(--clr-accent);
+      color:#fff;
+      padding:.85rem 1.8rem;
+      border-radius:8px;
+      font-weight:700;
+      font-size:1rem;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      transition: transform .15s, background .15s;
+      box-shadow:0 14px 40px rgba(255,122,47,0.25);
+    }
+    .btn:hover {
+      background: var(--clr-accent2);
+      transform: translateY(-2px);
+    }
+    .hero-img {
+      flex:0 0 340px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .hero-img img {
+      width:100%;
+      max-width:340px;
+      border-radius:14px;
+      display:block;
+      box-shadow:0 24px 64px -8px rgba(13,23,36,0.6);
+      background:#0f1f3c;
+    }
+
+    /* services */
+    #services {
+      margin-top:1rem;
+    }
+    .services-grid {
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+      gap:1rem;
+      margin-top:1rem;
+    }
+    .service-card {
+      transform: scale(0.7);
+      transform-origin: top center;
+      background: var(--clr-card);
+      border-radius: 16px;
+      position:relative;
+      overflow:hidden;
+      padding:18px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border:1px solid rgba(15,31,60,0.15);
+      color: var(--clr-text-dark);
+      aspect-ratio: 1 / 1;
+      min-height:0;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 64px rgba(30,120,255,0.18);
+    }
+    .service-top {
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+    }
+    .service-icon {
+      flex:0 0 44px;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,122,47,0.08);
+      border-radius:10px;
+      margin-top:2px;
+    }
+    .service-info {
+      flex:1;
+    }
+    .service-info h3 {
+      margin:0;
+      font-size:1.18rem;
+      font-weight:700;
+      line-height:1.1;
+    }
+    .service-info p {
+      margin:6px 0 0;
+      font-size:0.95rem;
+      line-height:1.3;
+      color: var(--clr-text-light);
+    }
+    .service-action {
+      margin-top:auto;
+      display:flex;
+      justify-content:flex-start;
+      gap:8px;
+      font-size:0.85rem;
+    }
+    .service-action a {
+      color: var(--clr-accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .services-grid {
+  gap: 0.5rem;
+}
+
+    footer {
+      padding:1rem;
+      text-align:center;
+      font-size:.85rem;
+      background: rgba(10,20,32,1);
+      color: #b8c2d9;
+      border-top:1px solid rgba(255,255,255,0.04);
+      margin-top:0;
+    }
+
+    @media (max-width:1100px){
+      .hero-text h1 { font-size:2.2rem; }
+      .hero-text p { font-size:1rem; }
+    }
+    @media (max-width:900px){
+      .header-container { padding:0 1rem; }
+      .hero { flex-direction:column-reverse; }
+      .hero-img { justify-content:center; }
+      .hero-img img { max-width:100%; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-card { aspect-ratio: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <div class="header-container">
+          <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="REVX Systems logo"></a>
+          </div>
+          <nav>
+            <a href="index.html" class="active">Services</a>
+            <a href="#">À propos</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </header>
+  <div class="background-root">
+    <div class="frame">
+
+
+      <main>
+        <section class="hero">
+          <div class="hero-text">
+            <h1>Optimisation ECU &amp; Diagnostic Batteries</h1>
+            <p>Boostez les performances de vos véhicules thermiques et électriques : reprogrammation, débridage, conversion E85, diagnostic et réparation de batteries lithium. Solutions sur mesure avec expertise technique.</p>
+            <a href="#contact" class="btn">Demander un devis</a>
+          </div>
+          <div class="hero-img">
+            <img src="assets/hero-image.png" alt="Illustration technique ECU et batterie">
+          </div>
+        </section>
+
+        <section id="services">
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- ECU SVG -->
+                  <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="12" width="40" height="40" rx="6" stroke="#1d9cff" stroke-width="4"/>
+                    <text x="32" y="38" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#8cff00" text-anchor="middle">ECU</text>
+                  </svg>
+                </div>
+                <div class="service-info">
+                  <h3>Interventions ECU Thermique</h3>
+                  <p>Reprogrammation Stage 1, débridage, conversion E85 et cartographies sur mesure.</p>
+                </div>
+              </div>
+              <div class="service-action">
+                <a href="#contact">Demander un fichier</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- Batterie / véhicule électrique SVG -->
+                  <svg width="28" height="28" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="14" y="20" width="36" height="40" rx="6" stroke="#1d9cff" stroke-width="4"/>
+                    <rect x="24" y="10" width="8" height="10" fill="#1d9cff"/>
+                    <rect x="36" y="10" width="8" height="10" fill="#1d9cff"/>
+                    <path d="M26 46 L38 46 L32 58 Z" fill="#8cff00"/>
+                  </svg>
+                </div>
+                <div class="service-info">
+                  <h3>Véhicules Électriques &amp; Batteries</h3>
+                  <p>Diagnostic, réparation, optimisation et reconditionnement de packs lithium.</p>
+                </div>
+              </div>
+              <div class="service-action">
+                <a href="#contact">Contact expert</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- Étude personnalisée (symbole laboratoire) -->
+                  <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="24" r="10" stroke="#1d9cff" stroke-width="4"/>
+                    <path d="M20 46 H44 C44 50 40 52 36 52 H28 C24 52 20 50 20 46 Z" stroke="#1d9cff" stroke-width="4" fill="none"/>
+                    <line x1="24" y1="34" x2="40" y2="34" stroke="#1d9cff" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="service-info">
+                  <h3>Étude personnalisée</h3>
+                  <p>Diagnostic technique sur mesure et solutions spécifiques selon ton besoin.</p>
+                </div>
+              </div>
+              <div class="service-action">
+                <a href="#contact">Faire une demande</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- Assistance à distance (casque) -->
+                  <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="28" r="10" stroke="#1d9cff" stroke-width="4"/>
+                    <path d="M14 44 H20 C22 44 24 42 24 40 V36" stroke="#1d9cff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M50 44 H44 C42 44 40 42 40 40 V36" stroke="#1d9cff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M20 50 C20 54 24 56 28 56 H36 C40 56 44 54 44 50" stroke="#1d9cff" stroke-width="4" fill="none"/>
+                    <line x1="22" y1="34" x2="42" y2="34" stroke="#1d9cff" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="service-info">
+                  <h3>Assistance à distance</h3>
+                  <p>Support technique en temps réel pour reprogrammation, troubleshooting et conseils.</p>
+                </div>
+              </div>
+              <div class="service-action">
+                <a href="#contact">Accéder au support</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        &copy; <span id="year"></span> REVX Systems – Micro-entreprise non soumise à la TVA (art. 293B CGI) – contact@revx-systems.fr
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

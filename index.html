@@ -1,237 +1,291 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REVX Systems | Optimisation ECU & Diagnostic Batteries</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>REVX Systems | Reprogrammation à distance sans démontage – ATV/SSV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --clr-bg: #f6f8fa;
-      --clr-header: #181D20;
-      --clr-accent: #2da44e;
-      --clr-link: #0969da;
-      --clr-text: #222;
-      --clr-card: #fff;
-      --shadow: 0 2px 8px rgba(36,41,47,0.06);
-      --radius: 12px;
-      --max-width: 1050px;
+      /* Dark base */
+      --bg-dark: #0e1420;
+      --panel-dark: #162131;
+      --text-light: #e8f0ff;
+      --text-dim: #a9b6c9;
+      /* Light sections */
+      --bg-light: #ffffff;
+      --text-dark: #0f1f3c;
+      --text-muted: #5f6d85;
+      --divider: rgba(15,31,60,0.08);
+      /* Accents */
+      --accent: #ff7a2f;   /* primary CTA */
+      --accent-strong: #ff6600;
+      --ok: #2da44e;
+      --warn: #f0b429;
+      /* Layout */
+      --max: 1080px;
+      --radius: 16px;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.18);
     }
-    html, body { margin: 0; padding: 0; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #101829 0%, #0b1322 100%);
+      color: var(--text-light);
     }
+    a { color: inherit; text-decoration: none; }
+    a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 2px dashed var(--accent); outline-offset: 3px; }
+    img { max-width: 100%; display: block; border-radius: 12px; }
+
+    /* Skip link */
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 16px; top: 8px; background: var(--accent); color: #fff; padding: 8px 12px; border-radius: 8px; z-index: 2000; }
+
+    /* Header */
     header {
-    background: var(--clr-header);
-    color: #fff;
-    padding: 0.9rem 0;
-    box-shadow: var(--shadow);
-  }
-  .header-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    min-height: 64px; /* Ajoute une hauteur minimale pour la cohérence */
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  .logo img {
-    height: 48px;
-    vertical-align: middle;
-    display: block;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 2rem;
-    font-size: 1.09rem;
-    transition: color .2s;
-  }
-  nav a:hover {
-    color: var(--clr-accent);
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+      background: rgba(10,18,32,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    main {
-      max-width: var(--max-width);
-      margin: 2rem auto;
-      padding: 0 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+    .head { 
+      max-width: var(--max); 
+      margin: 0 auto; 
+      padding: 14px 20px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      min-height: 70px; /* Assure une hauteur minimum pour le logo */
     }
+
+    .head a[aria-label="Accueil"] img {
+      height: 42px;
+      width: auto; /* Maintient les proportions */
+      object-fit: contain; /* Évite la déformation */
+      max-width: 100%; /* Évite le débordement */
+      border-radius: 0; /* Supprime l'arrondi des coins */
+    }
+
+    nav a { margin-left: 20px; font-weight: 600; color: var(--text-light); opacity: .92; }
+    nav a:hover, nav a.active { color: var(--accent); opacity: 1; }
+
+    /* Containers */
+    main { display: grid; gap: 28px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Hero (Dark) */
     .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      background: var(--clr-card);
+      background: linear-gradient(135deg, #1b2740 0%, #111a2b 60%, #1a2440 100%);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 2.5rem 2rem;
+      margin: 24px auto 0;
+      overflow: hidden;
     }
-    .hero-text {
-      flex: 1 1 340px;
-      min-width: 280px;
-    }
-    .hero-text h1 {
-      font-size: 2.35rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--clr-header);
-    }
-    .hero-text p {
-      font-size: 1.17rem;
-      margin-bottom: 2rem;
-      color: #344563;
-    }
-    .btn {
-      background: var(--clr-accent);
-      color: #fff;
-      padding: 0.8rem 1.8rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background .18s;
-    }
-    .btn:hover {
-      background: #238636;
-    }
-    .hero-img img {
-      max-width: 260px;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(45,164,78,0.07);
-      margin-left: 2rem;
-      background: #e3f7ed;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 0.5rem;
-    }
-    .card {
-      background: var(--clr-card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      text-align: left;
-      padding: 2.1rem 1.5rem 1.7rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 310px;
-      position: relative;
-      transition: box-shadow 0.15s, transform 0.12s;
-      border: 1.5px solid #f1f2f4;
-    }
-    .card:hover {
-      box-shadow: 0 6px 24px rgba(45,164,78,0.12), var(--shadow);
-      transform: translateY(-5px) scale(1.03);
-      border-color: var(--clr-accent);
-    }
-    .card img {
-      width: 68px;
-      height: 68px;
-      margin-bottom: 1.2rem;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 2px 10px #e3f7ed);
-    }
-    .card h3 {
-      font-size: 1.28rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: var(--clr-header);
-      text-align: center;
-    }
-    .card p {
-      color: #48505e;
-      font-size: 1.05rem;
-      text-align: center;
-    }
-    footer {
-      margin-top: 3rem;
-      padding: 1.2rem 0;
-      text-align: center;
-      font-size: .97rem;
-      background: var(--clr-bg);
-      color: #768390;
-      border-top: 1px solid #e2e8f0;
-    }
-    @media (max-width: 800px) {
-      .header-container, main { padding: 0 1rem; }
-      .hero { flex-direction: column; padding: 1.3rem 0.7rem; }
-      .hero-img img { margin-left: 0; margin-top: 2rem; width: 80vw; }
-      .services { grid-template-columns: 1fr; }
-      .card { min-height: 200px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; padding: 44px 28px; }
+    .eyebrow { color: var(--ok); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .82rem; }
+    h1 { font-size: clamp(1.9rem, 2vw + 1.2rem, 2.6rem); margin: 10px 0 6px; color: var(--text-light); }
+    .sub { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 18px; }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 16px; font-weight: 700; border: 0; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-strong); }
+    .btn-ghost { background: transparent; color: var(--text-light); border: 2px solid rgba(232,240,255,0.15); }
+    .btn-ghost:hover { border-color: rgba(232,240,255,0.3); }
+
+    .hero-figure { padding: 10px; }
+    .hero-figure img { border-radius: 14px; box-shadow: var(--shadow-soft); }
+
+    /* Status banner */
+    .status { margin-top: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; color: var(--text-dim); font-size: .98rem; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: .78rem; margin-right: 8px; }
+    .badge-warn { background: rgba(240,180,41,0.16); color: #ffd36b; border: 1px solid rgba(240,180,41,0.4); }
+
+    /* Proofs (Dark) */
+    .proofs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+    .kpi { background: var(--panel-dark); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; text-align: center; }
+    .kpi strong { display: block; font-size: 1.6rem; color: var(--text-light); }
+    .kpi span { color: var(--text-dim); font-size: .95rem; }
+
+    /* Light sections */
+    .section { border-radius: var(--radius); box-shadow: var(--shadow-soft); background: var(--bg-light); color: var(--text-dark); }
+    .section .wrap { padding: 36px 24px; }
+    .section h2 { margin: 0 0 6px; font-size: clamp(1.4rem, 1.2vw + 1rem, 1.8rem); color: var(--text-dark); }
+    .section p.lead { color: var(--text-muted); margin: 0 0 18px; }
+
+    /* Services grid (Light) */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { grid-column: span 4; background: #fff; border: 1px solid var(--divider); border-radius: 14px; padding: 18px; }
+    .card h3 { margin: 6px 0 8px; color: var(--text-dark); font-size: 1.1rem; }
+    .card p { color: var(--text-muted); font-size: .98rem; }
+    .card .mini { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; color: var(--accent-strong); font-weight: 700; }
+
+    /* Process (Light) */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+    .step { border: 1px solid var(--divider); border-radius: 14px; padding: 16px; background: #fff; }
+    .step strong { display: block; color: var(--text-dark); margin-bottom: 6px; }
+    .step p { margin: 0; color: var(--text-muted); font-size: .96rem; }
+
+    /* Lead magnet (Light) */
+    .leadmag { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; border: 1px dashed var(--divider); border-radius: 14px; padding: 18px; background: #fff; }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+
+    /* Waitlist / Contact (Dark) */
+    .cta { background: linear-gradient(180deg, #111a2b 0%, #0e1525 100%); border-radius: var(--radius); box-shadow: var(--shadow); color: var(--text-light); }
+    form { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    label { font-size: .9rem; color: var(--text-dim); }
+    input, select, textarea { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: var(--text-light); padding: 10px 12px; }
+    textarea { min-height: 110px; }
+    .span-3 { grid-column: span 3; }
+    .span-2 { grid-column: span 2; }
+    .span-6 { grid-column: span 6; }
+
+    /* Footer */
+    footer { color: var(--text-dim); text-align: center; padding: 28px 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .legal { font-size: .86rem; opacity: .9; }
+
+    /* Responsive */
+    @media (max-width: 940px) {
+      .hero-grid { grid-template-columns: 1fr; padding: 28px; text-align: center; }
+      .proofs { grid-template-columns: 1fr 1fr 1fr; }
+      .grid .card { grid-column: span 6; }
+      .steps { grid-template-columns: 1fr; }
+      form { grid-template-columns: 1fr; }
+      .span-2, .span-3, .span-6 { grid-column: 1 / -1; }
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip">Aller au contenu</a>
   <header>
-  <div class="header-container">
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="REVX Systems logo">
-      </a>
+    <div class="head wrap">
+      <a href="#" aria-label="Accueil"><img src="assets/logo.png" alt="REVX Systems" height="42" /></a>
+      <nav aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#waitlist" class="active">Pré-inscription</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Services</a>
-      <a href="contact.html" style="color: var(--clr-accent); font-weight:600;">Contact</a>
-    </nav>
-  </div>
-</header>
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Optimisation ECU & Diagnostic Batteries</h1>
-        <p>Boostez les performances de vos véhicules thermiques et électriques. Reprogrammation, débridage, conversion E85, et diagnostic/réparation de batteries lithium. <br>Service sur mesure & conseil expert.</p>
-        <a href="#contact" class="btn">Demander un devis</a>
-      </div>
-      <div class="hero-img">
-        <img src="assets/hero-image.png" alt="Illustration technique ECU et batterie">
+  </header>
+
+  <main id="main">
+    <!-- HERO DARK -->
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Pré-lancement</div>
+          <h1 id="hero-title">Reprogrammation à distance <br/>sans démontage – ATV/SSV/UTV...</h1>
+          <p class="sub">Gain de performance mesuré. Process sécurisé. Assistance à distance. <br/>Pilotes recherchés pour la mise en service.</p>
+          <div class="cta-row">
+            <a href="#waitlist" class="btn btn-primary">Rejoindre la liste pilote</a>
+            <a href="#leadmag" class="btn btn-ghost">Télécharger la checklist pré-flash</a>
+          </div>
+          <div class="status" role="status" aria-live="polite">
+            <span class="badge badge-warn">Statut technique</span>
+            Validation matériel en cours – lancement après tests internes réussis.
+          </div>
+          <div class="proofs" aria-label="Indicateurs de confiance">
+            <div class="kpi"><strong>0 brick</strong><span>sur tests internes</span></div>
+            <div class="kpi"><strong>24–48 h</strong><span>Délai visé</span></div>
+            <div class="kpi"><strong>OBD only</strong><span>Aucun démontage</span></div>
+          </div>
+        </div>
+        <div class="hero-figure">
+          <img src="assets/ECU_1_H.png" alt="Illustration de procédure à distance" loading="lazy" />
+        </div>
       </div>
     </section>
-    <section id="services">
-      <h2 style="margin-bottom:1.5rem; color:#222; font-weight:600; text-align:left;">Nos Services</h2>
-      <div class="services">
-        <div class="card">
-          <img src="assets/icon-ecu.png" alt="Reprogrammation ECU">
-          <h3>Interventions ECU Thermique</h3>
-          <p>Reprogrammation Stage 1, débridage vitesse courte, conversion E85, et fichiers sur mesure pour tous modèles.<br>
-          <a href="#contact" style="color:var(--clr-link);text-decoration:underline;">Demander un fichier</a></p>
-        </div>
-        <div class="card">
-          <img src="assets/icon-battery.png" alt="Diagnostic Batterie">
-          <h3>Véhicules Électriques & Batteries</h3>
-          <p>Diagnostic, réparation et reconditionnement de batteries lithium, optimisation des contrôleurs, études personnalisées.</p>
-        </div>
-        <div class="card">
-          <img src="assets/icon-custom.png" alt="Étude personnalisée">
-          <h3>Étude personnalisée</h3>
-          <p>Autres interventions ou diagnostics spécifiques : étude personnalisée selon vos besoins techniques.</p>
+
+    <!-- SERVICES LIGHT -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="wrap">
+        <h2 id="services-title">Services au lancement</h2>
+        <p class="lead">Une offre simple, claire et immédiatement opérationnelle dès validation technique.</p>
+        <div class="grid">
+          <article class="card" aria-labelledby="c1"><h3 id="c1">ECU Thermiques</h3><p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d’origine systématique.</p><a class="mini" href="#waitlist">Je veux être pilote →</a></article>
+          <article class="card" aria-labelledby="c2"><h3 id="c2">Assistance à distance</h3><p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Outils validés : BitBox + Tactrix.</p><a class="mini" href="#waitlist">Pré-inscription →</a></article>
+          <article class="card" aria-labelledby="c3"><h3 id="c3">Électrique & Batteries</h3><p>A venir.</p><a class="mini" href="#contact">Discuter d’un cas →</a></article>
         </div>
       </div>
+    </section>
+
+    <!-- PROCESS LIGHT -->
+    <section id="process" class="section" aria-labelledby="process-title">
+      <div class="wrap">
+        <h2 id="process-title">Comment ça marche</h2>
+        <p class="lead">Trois étapes, sans démonter l'ECU. Prérequis : tension stabilisée, interface valide, connexion stable.</p>
+        <div class="steps" role="list">
+          <div class="step" role="listitem"><strong>1. Lecture OBD</strong><p>Backup d’origine (Flash/EEPROM si applicable). Vérifications tension & logs.</p></div>
+          <div class="step" role="listitem"><strong>2. Calibration</strong><p>Analyse + préparation du fichier. Contrôles checksum & périmètre sécurité.</p></div>
+          <div class="step" role="listitem"><strong>3. Écriture & validation</strong><p>Reflash assisté, test à chaud, retour d’expérience. Backup conservé.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAD MAGNET LIGHT -->
+    <section id="leadmag" class="section" aria-labelledby="lead-title">
+      <div class="wrap">
+        <div class="leadmag">
+          <div>
+            <h2 id="lead-title">Checklist pré-flash (gratuite)</h2>
+            <p class="lead">Préparez votre atelier en 5 points et évitez 90% des erreurs courantes.</p>
+          </div>
+          <a class="btn btn-outline" href="assets/checklist-preflash.pdf" download>Télécharger le PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST / CONTACT DARK -->
+    <section id="waitlist" class="cta wrap" aria-labelledby="wl-title" style="padding: 28px;">
+      <h2 id="wl-title" style="margin-top:0">Rejoindre la liste pilote</h2>
+      <p class="sub" style="margin-top:-6px">Nous vous contactons dès l’ouverture des tests terrain. Places limitées.</p>
+      <form action="#" method="post" aria-describedby="wl-note">
+        <div class="span-3">
+          <label for="name">Nom / Société</label>
+          <input id="name" name="name" type="text" placeholder="Garage Durand / Durand Motors" required />
+        </div>
+        <div class="span-3">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="vous@exemple.fr" required />
+        </div>
+        <div class="span-2">
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+33 6 ..." />
+        </div>
+        <div class="span-2">
+          <label for="brand">Marque/Modèle</label>
+          <input id="brand" name="brand" type="text" placeholder="Segway / CFMOTO / Kymco ..." />
+        </div>
+        <div class="span-2">
+          <label for="ecu">ECU (si connu)</label>
+          <input id="ecu" name="ecu" type="text" placeholder="ME17.8.10, MSE6.0 ..." />
+        </div>
+        <div class="span-6">
+          <label for="msg">Commentaire</label>
+          <textarea id="msg" name="msg" placeholder="Disponibilités, localisation, contraintes…"></textarea>
+        </div>
+        <div class="span-6">
+          <button class="btn btn-primary" type="submit">M’inscrire sur la liste</button>
+        </div>
+        <p id="wl-note" class="sub" style="grid-column: 1 / -1">Aucune vente avant validation technique. Vous pourrez vous désinscrire à tout moment.</p>
+      </form>
     </section>
   </main>
-  <footer>
-    &copy; <span id="year"></span> REVX Systems – Micro-entreprise non soumise à la TVA (art. 293B CGI) – contact@revx-systems.fr
+
+  <footer id="contact">
+    <div class="wrap">
+      <p class="legal">© <span id="year"></span> REVX Systems — Micro‑entreprise (art. 293B CGI) — contact@revx-systems.fr</p>
+      <p class="legal">Usage <strong>off‑road / compétition</strong> selon réglementation locale. Support limité aux outils et configurations validés.</p>
+    </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

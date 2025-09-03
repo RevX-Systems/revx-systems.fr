@@ -1,144 +1,342 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merci pour votre message | REVX Systems</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REVX Systems | Optimisation ECU &amp; Diagnostic Batteries</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --clr-bg: #f6f8fa;
-      --clr-header: #181D20;
-      --clr-accent: #2da44e;
-      --clr-link: #0969da;
-      --clr-text: #222;
-      --clr-card: #fff;
-      --shadow: 0 2px 8px rgba(36,41,47,0.06);
-      --radius: 12px;
-      --max-width: 480px;
+      --clr-bg: #0d1724;
+      --clr-header: #0a1420;
+      --clr-card: #ffffff;
+      --clr-text-dark: #0f1f3c;
+      --clr-text-light: #5f6d85;
+      --clr-accent: #ff7a2f;
+      --clr-accent2: #ff6600;
+      --radius: 18px;
+      --max-width: 1020px;
+      --shadow-deep: 0 60px 120px -20px rgba(15, 40, 90, 0.45);
+      --shadow-soft: 0 30px 60px -10px rgba(0,0,0,0.35);
+      --transition: .18s ease;
+      font-family: 'Inter', system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
     }
-    html, body { margin: 0; padding: 0; }
+    * { box-sizing:border-box; }
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      min-height: 100vh;
+      margin:0;
+      /* Dégradé très foncé du haut gauche vers le bas droit */
+      background: linear-gradient(135deg, rgba(30,35,45,0.92) 0%, #0f172d 100%);
+      min-height:100vh;
+      color: #eaf6ff;
+      line-height:1.35;
+      overflow-x: hidden;
     }
+
     header {
-      background: var(--clr-header);
-      color: #fff;
-      padding: 0.9rem 0;
-      box-shadow: var(--shadow);
+      background: rgba(10, 20, 32, 0.72);
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
     }
     .header-container {
-      max-width: var(--max-width);
+      max-width: 58vw; /* S'aligne avec la largeur des blocs visuels */
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      min-height: 64px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
+      padding: 0 0.5vw;
+      gap: 1rem;
+      min-height: 100px;
     }
     .logo img {
-      height: 48px;
-      vertical-align: middle;
+      height: 52px;
       display: block;
+      margin-left: 0.5vw; /* Décalage léger à gauche */
     }
     nav {
       display: flex;
-      align-items: center;
+      gap: 2.2rem; /* Espacement plus large pour aérer */
+      flex-wrap: wrap;
+      font-size: 1rem;
+      margin-right: 30px; /* Décale les liens vers la gauche */
     }
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 2rem;
-      font-size: 1.09rem;
-      transition: color .2s;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:6px 0;
+      position:relative;
+      opacity:.9;
+      transition:opacity var(--transition), color var(--transition);
     }
+    nav a.active,
     nav a:hover {
       color: var(--clr-accent);
+      opacity:1;
     }
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 80vh;
-      padding: 3.5rem 0 2rem 0;
+
+    /* Scroll container */
+    .scroll-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      padding-left: 21vw;   /* Augmente la marge latérale pour réduire la largeur des blocs d'environ 30% supplémentaire */
+      padding-right: 21vw;
     }
-    .merci-card {
-      background: var(--clr-card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      max-width: var(--max-width);
-      width: 100%;
-      padding: 2.5rem 2rem 2rem 2rem;
+
+    /* Ralentir le scroll (effet JS) */
+    html {
+      scroll-behavior: auto; /* Désactive le smooth natif pour JS */
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+      min-height: 70vh; /* -30% de hauteur */
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      padding: 2rem;
+      scroll-snap-align: start;
+      position: relative;
+      padding-top: 120px; /* Espace pour le header */
+      /* Ombre portée pour effet flottant */
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 
+                  0 8px 25px rgba(0, 0, 0, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      margin: 1rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
     }
-    .merci-card h2 {
-      font-size: 2rem;
+
+    /* Effet spécial pour le premier bloc (image pleine largeur) */
+    .hero-section.hero-main {
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 
+                  0 10px 30px rgba(0, 0, 0, 0.3);
+      border-radius: 16px;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 500px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.77,.2,.32,1.01), transform 0.7s cubic-bezier(.77,.2,.32,1.01);
+    }
+
+    .hero-section.visible .hero-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem; /* Réduit pour s'adapter */
       font-weight: 700;
-      color: var(--clr-header);
-      margin-bottom: 1.2rem;
+      margin: 0 0 1rem;
+      line-height: 1.1;
       letter-spacing: -1px;
+      color: #fff;
     }
-    .merci-card p {
-      font-size: 1.15rem;
-      color: #344563;
-      margin-bottom: 2rem;
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin: 0 0 1.5rem;
+      color: #c2d1eb;
+      line-height: 1.5;
     }
+
     .btn {
       background: var(--clr-accent);
       color: #fff;
-      padding: 0.75rem 2.1rem;
+      padding: 0.8rem 1.5rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 2px 12px #e3f7ed77;
-      transition: background .18s;
-      margin-top: 1rem;
+      transition: background var(--transition), transform var(--transition);
       display: inline-block;
     }
+
     .btn:hover {
-      background: #238636;
+      background: var(--clr-accent2);
+      transform: translateY(-2px);
     }
-    @media (max-width: 600px) {
-      .header-container { padding: 0 1rem; }
-      .merci-card { padding: 1.1rem 0.5rem 1rem 0.5rem; }
-      main { padding: 1.3rem 0 1.5rem 0; }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    /* Specific hero backgrounds */
+    .hero-main {
+      background: linear-gradient(135deg, #1f2a40 0%, #0f172d 55%, #202a44 100%);
+    }
+
+    .hero-ecu {
+      background: linear-gradient(135deg, #2a1f40 0%, #172d0f 55%, #2a4420 100%);
+    }
+
+    .hero-electric {
+      background: linear-gradient(135deg, #1f4040 0%, #0f2d2d 55%, #204444 100%);
+    }
+
+    .hero-about {
+      background: linear-gradient(135deg, #401f2a 0%, #2d0f17 55%, #442044 100%);
+    }
+
+    /* Next block preview */
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: -20vh;
+      left: 0;
+      right: 0;
+      height: 20vh;
+      background: inherit;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .hero-section:last-of-type::after {
+      display: none;
+    }
+
+    footer {
+      padding:1rem;
+      text-align:center;
+      font-size:.85rem;
+      background: rgba(10,20,32,1);
+      color: #b8c2d9;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      margin-top:0;
+      min-height: 30vh; /* Plus petit footer */
+    }
+
+    @media (max-width:900px){
+      .header-container { padding:0 1rem; }
+      .hero-content { 
+        flex-direction: column; 
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-text p { font-size: 1rem; }
+      .hero-section { min-height: 60vh; padding-top: 100px; }
     }
   </style>
 </head>
 <body>
   <header>
-  <div class="header-container">
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="REVX Systems logo">
-      </a>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html"><img src="assets/logo.png" alt="REVX Systems logo"></a>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Services</a>
+        <a href="#">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Services</a>
-      <a href="contact.html" style="color: var(--clr-accent); font-weight:600;">Contact</a>
-    </nav>
-  </div>
-</header>
-  <main>
-    <section class="merci-card">
-      <h2>Merci pour votre message&nbsp;!</h2>
-      <p>
-        Votre demande a bien été envoyée.<br>
-        Nous vous répondrons dans les plus brefs délais.<br>
-      </p>
-      <a href="index.html" class="btn">Retour à l'accueil</a>
+  </header>
+
+  <div class="scroll-container">
+    <!-- Main Hero Section -->
+    <section class="hero-section hero-main" style="padding:0; min-height:60vh;">
+      <div class="hero-visual" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+        <img src="assets/ECU_1_H.png" alt="Illustration technique ECU et batterie" style="width:100%;height:auto;display:block;border-radius:0;">
+      </div>
     </section>
+
+    <!-- ECU Optimization Section -->
+    <section class="hero-section hero-ecu" style="position:relative; padding:0; min-height:70vh;">
+      <img src="assets/ECU_3.png" alt="Optimisation ECU" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;">
+      <div class="hero-content" style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;">
+        <div class="hero-text" style="background:rgba(20,24,32,0.55);padding:2rem 2.5rem;border-radius:18px;max-width:480px;">
+          <h1>Optimisation ECU Thermique</h1>
+          <p>Reprogrammation Stage 1, débridage vitesse, conversion E85. Fichiers sur mesure pour améliorer les performances et l'efficacité de votre véhicule thermique. Compatible avec tous modèles et marques.</p>
+          <a href="#contact" class="btn">Demander un fichier</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Electric Vehicle Section -->
+    <section class="hero-section hero-electric" style="position:relative; padding:0; min-height:70vh;">
+      <img src="assets/icon-battery.png" alt="Véhicules électriques" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;">
+      <div class="hero-content" style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;">
+        <div class="hero-text" style="background:rgba(20,24,32,0.55);padding:2rem 2.5rem;border-radius:18px;max-width:480px;">
+          <h1>Expertise Véhicules Électriques</h1>
+          <p>Diagnostic et réparation de batteries lithium, reconditionnement de packs, optimisation des contrôleurs. Solutions personnalisées pour véhicules électriques et vélos électriques.</p>
+          <a href="#contact" class="btn">Diagnostic batterie</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About REVX Section -->
+    <section class="hero-section hero-about">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>À propos de REVX Systems</h1>
+          <p>Expert en électronique automobile et systèmes embarqués. Micro-entreprise spécialisée dans l'optimisation des performances véhicules, avec une approche technique et personnalisée pour chaque projet.</p>
+          <a href="contact.html" class="btn">Nous contacter</a>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/about-revx.png" alt="REVX Systems">
+        </div>
+      </div>
+    </section>
+
+    <footer style="background: none; border-top: none; color: #b8c2d9; text-align: center; font-size: .85rem; margin-top: 0; padding: 2rem 0;">
+      &copy; <span id="year"></span> REVX Systems – Micro-entreprise non soumise à la TVA (art. 293B CGI) – contact@revx-systems.fr
+    </footer>
+  </div>
+
+  <script>
+  // Animation d'apparition sur les blocs textes des 2e et 3e blocs
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.8) { // Bloc en focus (80% visible)
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: [0, 0.8] });
+
+  document.querySelectorAll('.hero-section').forEach((section, idx) => {
+    if (idx === 1 || idx === 2) { // 2e et 3e blocs (ECU et Electric)
+      observer.observe(section);
+    }
+  });
+
+  // Ralentit le scroll de 25%
+  const container = document.querySelector('.scroll-container');
+  let isScrolling = false;
+  container.addEventListener('wheel', function(e) {
+    if (isScrolling) return;
+    e.preventDefault();
+    isScrolling = true;
+    const scrollAmount = e.deltaY * 0.75;
+    container.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+    setTimeout(() => { isScrolling = false; }, 200);
+  }, { passive: false });
+  
+  document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
