@@ -149,7 +149,19 @@
 
     /* Services grid (Light) */
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-    .card { grid-column: span 4; background: #fff; border: 1px solid var(--divider); border-radius: 14px; padding: 18px; }
+    .card { 
+      grid-column: span 4; 
+      background: #fff; 
+      border: 1px solid var(--divider); 
+      border-radius: 14px; 
+      padding: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12), 0 3px 10px rgba(0,0,0,0.08);
+    }
     .card h3 { margin: 6px 0 8px; color: var(--text-dark); font-size: 1.1rem; }
     .card p { color: var(--text-muted); font-size: .98rem; }
     .card .mini { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; color: var(--accent-strong); font-weight: 700; }
@@ -210,7 +222,7 @@
       <div class="hero-grid">
         <div>
           <div class="eyebrow">Pré-lancement</div>
-          <h1 id="hero-title">Reprogrammation à distance <br/>sans démontage – ATV/SSV/UTV...</h1>
+          <h1 id="hero-title">Reprogrammation à distance <br/>sans démontage – ATV/SSV/UTV</h1>
           <p class="sub">Gain de performance mesuré. Process sécurisé. Assistance à distance. <br/>Pilotes recherchés pour la mise en service.</p>
           <div class="cta-row">
             <a href="#waitlist" class="btn btn-primary">Rejoindre la liste pilote</a>
@@ -223,7 +235,7 @@
           <div class="proofs" aria-label="Indicateurs de confiance">
             <div class="kpi"><strong>0 brick</strong><span>sur tests internes</span></div>
             <div class="kpi"><strong>24–48 h</strong><span>Délai visé</span></div>
-            <div class="kpi"><strong>OBD only</strong><span>Aucun démontage</span></div>
+            <div class="kpi"><strong>OBD uniquement</strong><span>Aucun démontage</span></div>
           </div>
         </div>
         <div class="hero-figure">
@@ -238,9 +250,9 @@
         <h2 id="services-title">Services au lancement</h2>
         <p class="lead">Une offre simple, claire et immédiatement opérationnelle dès validation technique.</p>
         <div class="grid">
-          <article class="card" aria-labelledby="c1"><h3 id="c1">ECU Thermiques</h3><p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d'origine systématique.</p><a class="mini" href="#waitlist">Je veux être pilote →</a></article>
-          <article class="card" aria-labelledby="c2"><h3 id="c2">Assistance à distance</h3><p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Interfaces OBD/Bench validées.</p><a class="mini" href="#waitlist">Pré-inscription →</a></article>
-          <article class="card" aria-labelledby="c3" style="border: 2px solid var(--accent); background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);"><h3 id="c3" style="color: var(--accent);">Tarifs fidélité</h3><p><strong>À partir de 45€</strong> le flash ECU.<br/>Programme fidélité : <strong>10ème flash offert</strong>. Facturation transparente, pas de frais cachés.</p><a class="mini" href="#waitlist">Rejoindre le programme →</a></article>
+          <article class="card" aria-labelledby="c1"><h3 id="c1">ECU Thermiques</h3><p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d'origine systématique.</p><a class="mini" href="#waitlist">Rejoindre le programme →</a></article>
+          <article class="card" aria-labelledby="c2"><h3 id="c2">Assistance à distance</h3><p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Interfaces OBD/Bench validées.</p><a class="mini" href="#waitlist">Rejoindre le programme →</a></article>
+          <article class="card" aria-labelledby="c3" style="border: 2px solid var(--accent); background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);"><h3 id="c3" style="color: var(--accent);">Tarifs fidélité</h3><p><strong>À partir de 45 € HT</strong> le flash ECU.<br/>Programme fidélité : <strong>10e flash offert</strong>. Facturation transparente, pas de frais cachés.</p><a class="mini" href="#waitlist">Rejoindre le programme →</a></article>
         </div>
       </div>
     </section>
@@ -296,7 +308,7 @@
         </div>
         <div class="span-2">
           <label for="brand">Marque/Modèle</label>
-          <input id="brand" name="brand" type="text" placeholder="Segway / CFMOTO / Kymco ..." />
+          <input id="brand" name="brand" type="text" placeholder="Polaris / CFMOTO / Segway ..." />
         </div>
         <div class="span-2">
           <label for="ecu">ECU (si connu)</label>
