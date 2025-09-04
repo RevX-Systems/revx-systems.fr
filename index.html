@@ -71,8 +71,37 @@
       border-radius: 0; /* Supprime l'arrondi des coins */
     }
 
-    nav a { margin-left: 20px; font-weight: 600; color: var(--text-light); opacity: .92; }
-    nav a:hover, nav a.active { color: var(--accent); opacity: 1; }
+    nav a { 
+      margin-left: 20px; 
+      font-weight: 600; 
+      color: var(--text-light); 
+      opacity: .92; 
+      transition: color 0.3s ease, opacity 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover { 
+      color: var(--accent); 
+      opacity: 1; 
+    }
+
+    nav a.active { 
+      color: var(--accent); 
+      opacity: 1; 
+      font-weight: 700;
+    }
+
+    /* Ligne active sous le menu */
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
 
     /* Containers */
     main { display: grid; gap: 28px; }
@@ -209,9 +238,9 @@
         <h2 id="services-title">Services au lancement</h2>
         <p class="lead">Une offre simple, claire et immédiatement opérationnelle dès validation technique.</p>
         <div class="grid">
-          <article class="card" aria-labelledby="c1"><h3 id="c1">ECU Thermiques</h3><p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d’origine systématique.</p><a class="mini" href="#waitlist">Je veux être pilote →</a></article>
-          <article class="card" aria-labelledby="c2"><h3 id="c2">Assistance à distance</h3><p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Outils validés : BitBox + Tactrix.</p><a class="mini" href="#waitlist">Pré-inscription →</a></article>
-          <article class="card" aria-labelledby="c3"><h3 id="c3">Électrique & Batteries</h3><p>A venir.</p><a class="mini" href="#contact">Discuter d’un cas →</a></article>
+          <article class="card" aria-labelledby="c1"><h3 id="c1">ECU Thermiques</h3><p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d'origine systématique.</p><a class="mini" href="#waitlist">Je veux être pilote →</a></article>
+          <article class="card" aria-labelledby="c2"><h3 id="c2">Assistance à distance</h3><p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Interfaces OBD/Bench validées.</p><a class="mini" href="#waitlist">Pré-inscription →</a></article>
+          <article class="card" aria-labelledby="c3" style="border: 2px solid var(--accent); background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);"><h3 id="c3" style="color: var(--accent);">Tarifs fidélité</h3><p><strong>À partir de 45€</strong> le flash ECU.<br/>Programme fidélité : <strong>10ème flash offert</strong>. Facturation transparente, pas de frais cachés.</p><a class="mini" href="#waitlist">Rejoindre le programme →</a></article>
         </div>
       </div>
     </section>
@@ -237,7 +266,7 @@
             <h2 id="lead-title">Checklist pré-flash (gratuite)</h2>
             <p class="lead">Préparez votre atelier en 5 points et évitez 90% des erreurs courantes.</p>
           </div>
-          <a class="btn btn-outline" href="assets/checklist-preflash.pdf" download>Télécharger le PDF</a>
+          <a class="btn btn-outline" href="assets/Checklist pré-flash.pdf" download>Télécharger le PDF</a>
         </div>
       </div>
     </section>
@@ -294,6 +323,44 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Navigation active selon la section visible
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    function updateActiveNav() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    // Écouter le scroll pour mettre à jour la navigation
+    window.addEventListener('scroll', updateActiveNav);
+    
+    // Gérer les clics sur les liens de navigation
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    
+    // Initialiser au chargement
+    updateActiveNav();
   </script>
 </body>
 </html>
