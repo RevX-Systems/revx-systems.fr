@@ -148,7 +148,16 @@
     }
     .btn-ghost:hover { border-color: rgba(232,240,255,0.3); }
 
-    .hero-figure { padding: 10px; }
+    .hero-figure { 
+      padding: 10px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px;
+      justify-content: flex-end;
+      width: 120%;
+      margin-left: -10%;
+      padding-left: 26px;
+    }
     .hero-figure img { border-radius: 14px; box-shadow: var(--shadow-soft); }
 
     .status { 
@@ -327,6 +336,7 @@
           </div>
         </div>
         <div class="hero-figure">
+          <img src="assets/laptop_opt.png" alt="Interface de programmation" loading="lazy" />
           <img src="assets/ECU_1_H.png" alt="Illustration de procédure à distance" loading="lazy" />
         </div>
       </div>
