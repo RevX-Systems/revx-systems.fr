@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solution RevX - Méthode structurée pour interventions ECU fiables et traçables.">
+    <title>Solution RevX - REVX Systems</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme-modern.css" id="theme-modern">
+    <link rel="stylesheet" href="css/theme-v1.css" id="theme-v1" disabled>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_revx.png" alt="REVX Systems">
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="prestations.html" class="nav-link">Prestations</a></li>
+                    <li><a href="diagnostic.html" class="nav-link">Diagnostic</a></li>
+                    <li><a href="solution.html" class="nav-link active">Solution RevX</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
+            <li><a href="prestations.html" class="mobile-nav-link">Prestations</a></li>
+            <li><a href="diagnostic.html" class="mobile-nav-link">Diagnostic</a></li>
+            <li><a href="solution.html" class="mobile-nav-link active">Solution RevX</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Solution RevX</h1>
+            <p class="page-subtitle">Méthode structurée pour interventions maîtrisées</p>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2 class="section-title">Notre philosophie</h2>
+                    <p class="philosophy-lead">
+                        RevX n'est pas un simple service de reprogrammation. C'est une solution 
+                        complète, construite autour de trois piliers : fiabilité, contrôle et 
+                        simplicité pour le client.
+                    </p>
+                    <p class="philosophy-desc">
+                        Chaque intervention suit un cadre méthodologique précis, garantissant 
+                        la cohérence des résultats et la traçabilité des opérations. Cette 
+                        approche permet de réduire les risques et d'assurer un suivi efficace 
+                        dans la durée.
+                    </p>
+                </div>
+                <div class="philosophy-visual">
+                    <svg class="philosophy-illustration" viewBox="0 0 400 350" fill="none">
+                        <!-- Workflow circulaire moderne -->
+                        
+                        <!-- Cercle central -->
+                        <circle cx="200" cy="175" r="120" class="svg-stroke" stroke-width="2" opacity="0.15"/>
+                        <circle cx="200" cy="175" r="90" class="svg-stroke" stroke-width="1.5" opacity="0.25"/>
+                        <circle cx="200" cy="175" r="45" class="svg-fill-accent" opacity="0.1"/>
+                        
+                        <!-- Centre: Logo/Symbole RevX -->
+                        <circle cx="200" cy="175" r="35" class="svg-stroke" stroke-width="2"/>
+                        <path d="M185 175 L195 185 L215 165" class="svg-stroke-accent" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="200" y="210" text-anchor="middle" class="svg-text-small" font-weight="600">RevX</text>
+                        
+                        <!-- Nœud 1: Fiabilité (Haut) -->
+                        <g transform="translate(200, 40)">
+                            <circle r="32" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="28" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Shield Check -->
+                            <path d="M0 -10 L-8 -6 L-8 2 C-8 8 -4 12 0 14 C4 12 8 8 8 2 L8 -6 Z" class="svg-stroke-accent" stroke-width="1.8" fill="none"/>
+                            <path d="M-3 2 L-1 4 L4 -2" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <text x="200" y="18" text-anchor="middle" class="svg-text-small" font-weight="500">Fiabilité</text>
+                        
+                        <!-- Nœud 2: Contrôle (Droite) -->
+                        <g transform="translate(320, 175)">
+                            <circle r="32" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="28" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Settings/Control -->
+                            <circle r="8" class="svg-stroke-accent" stroke-width="1.8"/>
+                            <path d="M0 -12 L0 -10 M0 10 L0 12 M10 0 L12 0 M-10 0 L-12 0" class="svg-stroke-accent" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M-8 -8 L-6 -6 M6 6 L8 8 M8 -8 L6 -6 M-6 6 L-8 8" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                        <text x="320" y="225" text-anchor="middle" class="svg-text-small" font-weight="500">Contrôle</text>
+                        
+                        <!-- Nœud 3: Simplicité (Bas Droite) -->
+                        <g transform="translate(280, 280)">
+                            <circle r="32" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="28" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Simplified Lines -->
+                            <path d="M-10 -4 L10 -4" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M-10 2 L10 2" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M-10 8 L6 8" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                            <circle cx="9" cy="8" r="1.5" class="svg-fill-accent"/>
+                        </g>
+                        <text x="280" y="330" text-anchor="middle" class="svg-text-small" font-weight="500">Simplicité</text>
+                        
+                        <!-- Nœud 4: Performance (Bas Gauche) -->
+                        <g transform="translate(120, 280)">
+                            <circle r="32" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="28" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Graph/Performance -->
+                            <path d="M-10 8 L-5 2 L0 4 L5 -2 L10 -8" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <circle cx="10" cy="-8" r="2" class="svg-fill-accent"/>
+                        </g>
+                        <text x="120" y="330" text-anchor="middle" class="svg-text-small" font-weight="500">Performance</text>
+                        
+                        <!-- Nœud 5: Traçabilité (Gauche) -->
+                        <g transform="translate(80, 175)">
+                            <circle r="32" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="28" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Document/Trace -->
+                            <rect x="-8" y="-10" width="16" height="20" rx="2" class="svg-stroke-accent" stroke-width="1.8" fill="none"/>
+                            <line x1="-4" y1="-5" x2="4" y2="-5" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="-4" y1="0" x2="4" y2="0" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                            <line x1="-4" y1="5" x2="2" y2="5" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                        </g>
+                        <text x="80" y="225" text-anchor="middle" class="svg-text-small" font-weight="500">Traçabilité</text>
+                        
+                        <!-- Lignes de connexion (flow) -->
+                        <path d="M200 72 Q 200 100 200 140" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M288 175 Q 250 175 235 175" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M260 255 Q 230 220 220 195" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M140 265 Q 170 230 180 200" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M112 175 Q 150 175 165 175" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        
+                        <!-- Particules/Dots en mouvement -->
+                        <circle cx="200" cy="110" r="2" class="svg-fill-accent" opacity="0.8"/>
+                        <circle cx="260" cy="175" r="2" class="svg-fill-accent" opacity="0.6"/>
+                        <circle cx="230" cy="230" r="2" class="svg-fill-accent" opacity="0.7"/>
+                        <circle cx="160" cy="240" r="2" class="svg-fill-accent" opacity="0.5"/>
+                        <circle cx="130" cy="175" r="2" class="svg-fill-accent" opacity="0.8"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Section -->
+    <section class="section method">
+        <div class="container">
+            <h2 class="section-title">Méthode en 4 étapes</h2>
+            <div class="method-grid">
+                <!-- Step 1 -->
+                <div class="method-step">
+                    <div class="method-number">01</div>
+                    <div class="method-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" class="svg-stroke" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" class="svg-stroke-accent" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="3" class="svg-fill-accent"/>
+                            <line x1="32" y1="8" x2="32" y2="12" class="svg-stroke" stroke-width="2"/>
+                            <line x1="32" y1="52" x2="32" y2="56" class="svg-stroke" stroke-width="2"/>
+                            <line x1="8" y1="32" x2="12" y2="32" class="svg-stroke" stroke-width="2"/>
+                            <line x1="52" y1="32" x2="56" y2="32" class="svg-stroke" stroke-width="2"/>
+                            <line x1="15" y1="15" x2="18" y2="18" class="svg-stroke" stroke-width="1.5"/>
+                            <line x1="46" y1="46" x2="49" y2="49" class="svg-stroke" stroke-width="1.5"/>
+                            <line x1="46" y1="18" x2="49" y2="15" class="svg-stroke" stroke-width="1.5"/>
+                            <line x1="15" y1="49" x2="18" y2="46" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="method-title">Analyse</h3>
+                    <p class="method-desc">
+                        Identification du véhicule, de l'ECU et des besoins réels. 
+                        Vérification de la faisabilité technique.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="method-step">
+                    <div class="method-number">02</div>
+                    <div class="method-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="16" width="40" height="32" rx="4" class="svg-stroke" stroke-width="2"/>
+                            <line x1="12" y1="26" x2="52" y2="26" class="svg-stroke" stroke-width="1.5"/>
+                            <rect x="18" y="32" width="12" height="10" rx="2" class="svg-fill-accent" opacity="0.3"/>
+                            <rect x="34" y="32" width="12" height="10" rx="2" class="svg-stroke" stroke-width="1.5"/>
+                            <circle cx="22" cy="21" r="2" class="svg-fill-accent"/>
+                            <circle cx="30" cy="21" r="2" class="svg-stroke" stroke-width="1"/>
+                            <circle cx="38" cy="21" r="2" class="svg-stroke" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3 class="method-title">Préparation</h3>
+                    <p class="method-desc">
+                        Création de la calibration sur mesure. Tests internes 
+                        et validation avant livraison.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="method-step">
+                    <div class="method-number">03</div>
+                    <div class="method-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="16" y="12" width="32" height="24" rx="4" class="svg-stroke" stroke-width="2"/>
+                            <rect x="22" y="18" width="20" height="12" rx="2" class="svg-fill-dark"/>
+                            <polyline points="26,26 30,22 34,25 38,20" class="svg-stroke-accent" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M32 36 L32 44" class="svg-stroke" stroke-width="2"/>
+                            <path d="M24 44 L40 44" class="svg-stroke" stroke-width="2"/>
+                            <path d="M20 48 L44 48" class="svg-stroke" stroke-width="2"/>
+                            <!-- Progress indicator -->
+                            <circle cx="50" cy="20" r="6" class="svg-stroke-accent" stroke-width="1.5"/>
+                            <path d="M48 20 L49 21 L52 18" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="method-title">Intervention contrôlée</h3>
+                    <p class="method-desc">
+                        Écriture accompagnée avec vérification post-flash. 
+                        Validation du bon fonctionnement.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="method-step">
+                    <div class="method-number">04</div>
+                    <div class="method-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="28" r="16" class="svg-stroke" stroke-width="2"/>
+                            <path d="M26 28 L30 32 L38 24" class="svg-stroke-accent" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 44 Q32 52 44 44" class="svg-stroke" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="44" r="4" class="svg-fill-accent" opacity="0.3"/>
+                            <circle cx="44" cy="44" r="4" class="svg-fill-accent" opacity="0.3"/>
+                            <line x1="32" y1="48" x2="32" y2="56" class="svg-stroke-accent" stroke-width="2" stroke-dasharray="3 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="method-title">Support</h3>
+                    <p class="method-desc">
+                        Suivi post-intervention et assistance. 
+                        Ajustements si nécessaire.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Approach Section -->
+    <section class="section approach">
+        <div class="container">
+            <div class="approach-content">
+                <h2 class="section-title">Pourquoi cette approche</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <path d="M20 5 L20 35" class="svg-stroke" stroke-width="2"/>
+                                <path d="M5 20 L35 20" class="svg-stroke" stroke-width="2"/>
+                                <circle cx="20" cy="20" r="8" class="svg-stroke-accent" stroke-width="2"/>
+                                <circle cx="20" cy="20" r="3" class="svg-fill-accent"/>
+                            </svg>
+                        </div>
+                        <div class="approach-text">
+                            <h3>Réduction des risques</h3>
+                            <p>Chaque étape est validée avant de passer à la suivante. Les erreurs sont identifiées en amont.</p>
+                        </div>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="8" width="24" height="24" rx="4" class="svg-stroke" stroke-width="2"/>
+                                <line x1="8" y1="16" x2="32" y2="16" class="svg-stroke" stroke-width="1.5"/>
+                                <line x1="8" y1="24" x2="32" y2="24" class="svg-stroke" stroke-width="1.5"/>
+                                <circle cx="14" cy="12" r="2" class="svg-fill-accent"/>
+                                <rect x="12" y="19" width="8" height="2" rx="1" class="svg-fill-accent" opacity="0.5"/>
+                                <rect x="12" y="27" width="12" height="2" rx="1" class="svg-stroke-accent" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <div class="approach-text">
+                            <h3>Traçabilité</h3>
+                            <p>Historique complet des interventions. Chaque opération est documentée et archivée.</p>
+                        </div>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <polygon points="20,5 35,15 35,30 20,35 5,30 5,15" class="svg-stroke" stroke-width="2" fill="none"/>
+                                <polygon points="20,12 28,18 28,27 20,30 12,27 12,18" class="svg-fill-accent" opacity="0.2"/>
+                                <circle cx="20" cy="22" r="4" class="svg-stroke-accent" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div class="approach-text">
+                            <h3>Cohérence</h3>
+                            <p>Même niveau de qualité et de rigueur appliqué à chaque intervention, quel que soit le véhicule.</p>
+                        </div>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="14" class="svg-stroke" stroke-width="2"/>
+                                <path d="M14 20 L18 24 L26 16" class="svg-stroke-accent" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="approach-text">
+                            <h3>Sérénité client</h3>
+                            <p>Processus clair, communication transparente. Le client sait exactement où il en est.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Summary -->
+    <section class="section summary-visual">
+        <div class="container">
+            <div class="summary-block">
+                <svg class="summary-illustration" viewBox="0 0 600 200" fill="none">
+                    <!-- Timeline base -->
+                    <line x1="50" y1="100" x2="550" y2="100" class="svg-stroke" stroke-width="2" opacity="0.3"/>
+                    
+                    <!-- Step nodes -->
+                    <g transform="translate(100, 100)">
+                        <circle r="20" class="svg-stroke" stroke-width="2"/>
+                        <circle r="8" class="svg-fill-accent"/>
+                        <text y="-35" text-anchor="middle" class="svg-text">Analyse</text>
+                    </g>
+                    
+                    <g transform="translate(233, 100)">
+                        <circle r="20" class="svg-stroke" stroke-width="2"/>
+                        <circle r="8" class="svg-fill-accent"/>
+                        <text y="-35" text-anchor="middle" class="svg-text">Préparation</text>
+                    </g>
+                    
+                    <g transform="translate(366, 100)">
+                        <circle r="20" class="svg-stroke" stroke-width="2"/>
+                        <circle r="8" class="svg-fill-accent"/>
+                        <text y="-35" text-anchor="middle" class="svg-text">Intervention</text>
+                    </g>
+                    
+                    <g transform="translate(500, 100)">
+                        <circle r="20" class="svg-stroke" stroke-width="2"/>
+                        <circle r="8" class="svg-fill-accent"/>
+                        <text y="-35" text-anchor="middle" class="svg-text">Support</text>
+                    </g>
+                    
+                    <!-- Connecting lines -->
+                    <path d="M120 100 L213 100" class="svg-stroke-accent" stroke-width="2"/>
+                    <path d="M253 100 L346 100" class="svg-stroke-accent" stroke-width="2"/>
+                    <path d="M386 100 L480 100" class="svg-stroke-accent" stroke-width="2"/>
+                    
+                    <!-- Arrows -->
+                    <polygon points="213,95 223,100 213,105" class="svg-fill-accent"/>
+                    <polygon points="346,95 356,100 346,105" class="svg-fill-accent"/>
+                    <polygon points="480,95 490,100 480,105" class="svg-fill-accent"/>
+                    
+                    <!-- Bottom labels -->
+                    <text x="100" y="145" text-anchor="middle" class="svg-text-small" opacity="0.7">Échange</text>
+                    <text x="233" y="145" text-anchor="middle" class="svg-text-small" opacity="0.7">Calibration</text>
+                    <text x="366" y="145" text-anchor="middle" class="svg-text-small" opacity="0.7">Flash</text>
+                    <text x="500" y="145" text-anchor="middle" class="svg-text-small" opacity="0.7">Suivi</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Prêt à travailler avec une méthode structurée ?</h2>
+                <p class="cta-text">Échangeons sur votre projet et vos besoins spécifiques.</p>
+                <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo_revx.png" alt="REVX Systems" class="footer-logo">
+                    <p class="footer-tagline">Expertise ECU & solutions techniques</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Accueil</a>
+                    <a href="prestations.html">Prestations</a>
+                    <a href="diagnostic.html">Diagnostic</a>
+                    <a href="solution.html">Solution RevX</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <p class="footer-copy">&copy; 2026 REVX Systems. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

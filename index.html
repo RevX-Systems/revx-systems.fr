@@ -1,496 +1,205 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>REVX Systems | Reprogrammation à distance sans démontage – ATV/SSV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0e1420;
-      --panel-dark: #162131;
-      --text-light: #e8f0ff;
-      --text-dim: #a9b6c9;
-      --bg-light: #ffffff;
-      --text-dark: #0f1f3c;
-      --text-muted: #5f6d85;
-      --divider: rgba(15,31,60,0.08);
-      --accent: #ff7a2f;
-      --accent-strong: #ff6600;
-      --ok: #2da44e;
-      --warn: #f0b429;
-      --max: 1080px;
-      --radius: 16px;
-      --shadow: 0 20px 50px rgba(0,0,0,0.35);
-      --shadow-soft: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #101829 0%, #0b1322 100%);
-      color: var(--text-light);
-    }
-    a { color: inherit; text-decoration: none; }
-    a:focus, button:focus, input:focus, select:focus, textarea:focus { 
-      outline: 2px dashed var(--accent); 
-      outline-offset: 3px; 
-    }
-    img { max-width: 100%; display: block; border-radius: 12px; }
-
-    .skip { position: absolute; left: -9999px; }
-    .skip:focus { 
-      left: 16px; 
-      top: 8px; 
-      background: var(--accent); 
-      color: #fff; 
-      padding: 8px 12px; 
-      border-radius: 8px; 
-      z-index: 2000; 
-    }
-
-    header {
-      position: sticky; 
-      top: 0; 
-      z-index: 1000;
-      backdrop-filter: blur(8px) saturate(140%);
-      -webkit-backdrop-filter: blur(8px) saturate(140%);
-      background: rgba(10,18,32,0.7);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .head { 
-      max-width: var(--max); 
-      margin: 0 auto; 
-      padding: 14px 20px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      min-height: 70px;
-    }
-    .head a[aria-label="Accueil"] img {
-  height: 100px;
-  width: auto;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0;
-}
-    nav a { 
-      margin-left: 20px; 
-      font-weight: 600; 
-      color: var(--text-light); 
-      opacity: .92; 
-      transition: color 0.3s ease, opacity 0.3s ease;
-      position: relative;
-    }
-    nav a:hover { color: var(--accent); opacity: 1; }
-    nav a.active { color: var(--accent); opacity: 1; font-weight: 700; }
-    nav a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 1px;
-    }
-
-    main { display: grid; gap: 28px; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-
-    .hero {
-      background: linear-gradient(135deg, #1b2740 0%, #111a2b 60%, #1a2440 100%);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin: 24px auto 0;
-      overflow: hidden;
-    }
-    .hero-grid { 
-      display: grid; 
-      grid-template-columns: 1.1fr .9fr; 
-      gap: 28px; 
-      align-items: center; 
-      padding: 44px 28px; 
-    }
-    .eyebrow { 
-      color: var(--ok); 
-      font-weight: 700; 
-      letter-spacing: .06em; 
-      text-transform: uppercase; 
-      font-size: .82rem; 
-    }
-    h1 { 
-      font-size: clamp(1.9rem, 2vw + 1.2rem, 2.6rem); 
-      margin: 10px 0 6px; 
-      color: var(--text-light); 
-    }
-    .hero-subline { display: block; font-size: 0.9em; font-weight: 600; margin-top: 6px; }
-    .sub { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 18px; }
-
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      border-radius: 10px; 
-      padding: 12px 16px; 
-      font-weight: 700; 
-      border: 0; 
-      cursor: pointer; 
-      transition: all 0.2s ease;
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-strong); }
-    .btn-ghost { 
-      background: transparent; 
-      color: var(--text-light); 
-      border: 2px solid rgba(232,240,255,0.15); 
-    }
-    .btn-ghost:hover { border-color: rgba(232,240,255,0.3); }
-
-    .hero-figure { 
-      padding: 10px; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 16px;
-      justify-content: flex-end;
-      width: 120%;
-      margin-left: -10%;
-      padding-left: 26px;
-    }
-    .hero-figure img { border-radius: 14px; box-shadow: var(--shadow-soft); }
-
-    .status { 
-      margin-top: 8px; 
-      background: rgba(255,255,255,0.06); 
-      border: 1px solid rgba(255,255,255,0.12); 
-      border-radius: 12px; 
-      padding: 10px 14px; 
-      color: var(--text-dim); 
-      font-size: .98rem; 
-    }
-    .badge { 
-      display: inline-block; 
-      padding: 2px 8px; 
-      border-radius: 999px; 
-      font-weight: 700; 
-      font-size: .78rem; 
-      margin-right: 8px; 
-    }
-    .badge-warn { 
-      background: rgba(240,180,41,0.16); 
-      color: #ffd36b; 
-      border: 1px solid rgba(240,180,41,0.4); 
-    }
-
-    .proofs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
-    .kpi { 
-      background: var(--panel-dark); 
-      border: 1px solid rgba(255,255,255,0.08); 
-      border-radius: 12px; 
-      padding: 16px; 
-      text-align: center; 
-    }
-    .kpi strong { display: block; font-size: 1.6rem; color: var(--text-light); }
-    .kpi span { color: var(--text-dim); font-size: .95rem; }
-
-    .section { 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow-soft); 
-      background: var(--bg-light); 
-      color: var(--text-dark); 
-    }
-    .section .wrap { padding: 36px 24px; }
-    .section h2 { 
-      margin: 0 0 6px; 
-      font-size: clamp(1.4rem, 1.2vw + 1rem, 1.8rem); 
-      color: var(--text-dark); 
-    }
-    .section p.lead { color: var(--text-muted); margin: 0 0 18px; }
-
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-    .card { 
-      grid-column: span 4; 
-      background: #fff; 
-      border: 1px solid var(--divider); 
-      border-radius: 14px; 
-      padding: 18px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12), 0 3px 10px rgba(0,0,0,0.08);
-    }
-    .card h3 { margin: 6px 0 8px; color: var(--text-dark); font-size: 1.1rem; }
-    .card p { color: var(--text-muted); font-size: .98rem; }
-    .card .mini { 
-      margin-top: 10px; 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      color: var(--accent-strong); 
-      font-weight: 700; 
-    }
-
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
-    .step { border: 1px solid var(--divider); border-radius: 14px; padding: 16px; background: #fff; }
-    .step strong { display: block; color: var(--text-dark); margin-bottom: 6px; }
-    .step p { margin: 0; color: var(--text-muted); font-size: .96rem; }
-
-    .leadmag { 
-      display: grid; 
-      grid-template-columns: 1fr auto; 
-      align-items: center; 
-      gap: 20px; 
-      border: 1px dashed var(--divider); 
-      border-radius: 14px; 
-      padding: 18px; 
-      background: #fff; 
-    }
-    .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
-    .btn-outline:hover { background: var(--accent); color: #fff; }
-
-    .cta { 
-      background: linear-gradient(180deg, #111a2b 0%, #0e1525 100%); 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      color: var(--text-light); 
-    }
-    form { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
-    label { font-size: .9rem; color: var(--text-dim); }
-    input, select, textarea { 
-      width: 100%; 
-      border-radius: 10px; 
-      border: 1px solid rgba(255,255,255,0.18); 
-      background: rgba(255,255,255,0.06); 
-      color: var(--text-light); 
-      padding: 10px 12px; 
-    }
-    textarea { min-height: 110px; }
-    .span-3 { grid-column: span 3; }
-    .span-2 { grid-column: span 2; }
-    .span-6 { grid-column: span 6; }
-
-    footer { 
-      color: var(--text-dim); 
-      text-align: center; 
-      padding: 28px 20px; 
-      border-top: 1px solid rgba(255,255,255,0.08); 
-    }
-    .legal { font-size: .86rem; opacity: .9; }
-
-    @media (max-width: 940px) {
-      .hero-grid { grid-template-columns: 1fr; padding: 28px; text-align: center; }
-      .proofs { grid-template-columns: 1fr 1fr 1fr; }
-      .grid .card { grid-column: span 6; }
-      .steps { grid-template-columns: 1fr; }
-      form { grid-template-columns: 1fr; }
-      .span-2, .span-3, .span-6 { grid-column: 1 / -1; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REVX Systems - Reprogrammation ECU & expertise technique pour véhicules de loisirs et utilitaires légers.">
+    <title>REVX Systems - Reprogrammation ECU & Expertise Technique</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme-modern.css" id="theme-modern">
+    <link rel="stylesheet" href="css/theme-v1.css" id="theme-v1" disabled>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a href="#main" class="skip">Aller au contenu</a>
-  
-  <header>
-    <div class="head wrap">
-      <a href="#" aria-label="Accueil">
-        <img src="assets/Logo01_2025_crop.png" alt="REVX Systems" height="100" />
-      </a>
-      <nav aria-label="Navigation principale">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#waitlist" class="active">Pré-inscription</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_revx.png" alt="REVX Systems">
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                    <li><a href="prestations.html" class="nav-link">Prestations</a></li>
+                    <li><a href="diagnostic.html" class="nav-link">Diagnostic</a></li>
+                    <li><a href="solution.html" class="nav-link">Solution RevX</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link active">Accueil</a></li>
+            <li><a href="prestations.html" class="mobile-nav-link">Prestations</a></li>
+            <li><a href="diagnostic.html" class="mobile-nav-link">Diagnostic</a></li>
+            <li><a href="solution.html" class="mobile-nav-link">Solution RevX</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
     </div>
-  </header>
 
-  <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">Pré-lancement</div>
-          <h1 id="hero-title">
-            Reprogrammation à distance
-            <span class="hero-subline">Véhicules Powersport – ATV/SSV/UTV</span>
-            <span class="hero-subline">Sans démontage – OBD priorisé</span>
-          </h1>
-          <p class="sub">
-            Gain de performance mesuré. Process sécurisé. Assistance à distance.<br/>
-            Pilotes recherchés pour la mise en service.
-          </p>
-          <div class="cta-row">
-            <a href="#waitlist" class="btn btn-primary">Rejoindre la liste pilote</a>
-            <a href="#leadmag" class="btn btn-ghost">Télécharger la checklist pré-flash</a>
-          </div>
-          <div class="status" role="status" aria-live="polite">
-            <span class="badge badge-warn">Statut technique</span>
-            Validation matériel en cours – lancement après tests internes réussis.
-          </div>
-          <div class="proofs" aria-label="Indicateurs de confiance">
-            <div class="kpi"><strong>0 brick</strong><span>sur tests internes</span></div>
-            <div class="kpi"><strong>24–48 h</strong><span>Délai visé</span></div>
-            <div class="kpi"><strong>Priorité OBD</strong><span>Aucun démontage</span></div>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">REVX SYSTEMS — SINCE 2024</div>
+                    <h1 class="hero-title">Reprogrammation ECU & expertise technique</h1>
+                    <p class="hero-subtitle">Solutions maîtrisées pour véhicules de loisirs et utilitaires légers.</p>
+                    <div class="hero-buttons">
+                        <a href="solution.html" class="btn btn-primary">Découvrir la solution</a>
+                        <a href="prestations.html" class="btn btn-secondary">Nos Prestations</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-figure">
-          <img src="assets/Laptop_OPT.png" alt="Interface de programmation" loading="lazy" />
-          <img src="assets/ECU_1_H.png" alt="Illustration de procédure à distance" loading="lazy" />
-        </div>
-      </div>
     </section>
 
-    <section id="services" class="section" aria-labelledby="services-title">
-      <div class="wrap">
-        <h2 id="services-title">Services au lancement</h2>
-        <p class="lead">Une offre simple, claire et immédiatement opérationnelle dès validation technique.</p>
-        <div class="grid">
-          <article class="card" aria-labelledby="c1">
-            <h3 id="c1">ECU Thermiques</h3>
-            <p>Stage 1, débridage, modification, conversion E85. Fichiers testés et sauvegarde d'origine systématique.</p>
-            <a class="mini" href="#waitlist">Rejoindre le programme →</a>
-          </article>
-          <article class="card" aria-labelledby="c2">
-            <h3 id="c2">Assistance à distance</h3>
-            <p>Accompagnement pas à pas : lecture, envoi, écriture, vérifications. Interfaces OBD/Bench validées.</p>
-            <a class="mini" href="#waitlist">Rejoindre le programme →</a>
-          </article>
-          <article class="card" aria-labelledby="c3" style="border: 2px solid var(--accent); background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);">
-            <h3 id="c3" style="color: var(--accent);">Tarifs fidélité</h3>
-            <p><strong>À partir de 49 € TTC</strong> le flash ECU.<br/>Programme fidélité : <strong>10e flash offert</strong>. Facturation transparente, pas de frais cachés.</p>
-            <a class="mini" href="#waitlist">Rejoindre le programme →</a>
-          </article>
+    <!-- Domains Section -->
+    <section class="section domains">
+        <div class="container">
+            <h2 class="section-title">Domaines d'intervention</h2>
+            <div class="domains-grid">
+                <!-- Reprogrammation ECU -->
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="16" width="40" height="32" rx="4" class="svg-stroke" stroke-width="2"/>
+                            <rect x="18" y="22" width="12" height="12" rx="2" class="svg-stroke" stroke-width="1.5"/>
+                            <rect x="34" y="22" width="12" height="12" rx="2" class="svg-stroke" stroke-width="1.5"/>
+                            <rect x="26" y="38" width="12" height="6" rx="1" class="svg-fill-accent"/>
+                            <line x1="8" y1="26" x2="12" y2="26" class="svg-stroke" stroke-width="2"/>
+                            <line x1="8" y1="32" x2="12" y2="32" class="svg-stroke" stroke-width="2"/>
+                            <line x1="8" y1="38" x2="12" y2="38" class="svg-stroke" stroke-width="2"/>
+                            <line x1="52" y1="26" x2="56" y2="26" class="svg-stroke" stroke-width="2"/>
+                            <line x1="52" y1="32" x2="56" y2="32" class="svg-stroke" stroke-width="2"/>
+                            <line x1="52" y1="38" x2="56" y2="38" class="svg-stroke" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="domain-title">Reprogrammation ECU</h3>
+                    <p class="domain-desc">Calibrations sur mesure adaptées à chaque configuration véhicule.</p>
+                </div>
+
+                <!-- Support Technique -->
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="20" class="svg-stroke" stroke-width="2" fill="none"/>
+                            <path d="M32 20 L32 32 L42 38" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="3" class="svg-fill-accent"/>
+                            <line x1="32" y1="8" x2="32" y2="12" class="svg-stroke" stroke-width="2"/>
+                            <line x1="32" y1="52" x2="32" y2="56" class="svg-stroke" stroke-width="2"/>
+                            <line x1="8" y1="32" x2="12" y2="32" class="svg-stroke" stroke-width="2"/>
+                            <line x1="52" y1="32" x2="56" y2="32" class="svg-stroke" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="domain-title">Support technique</h3>
+                    <p class="domain-desc">Accompagnement et assistance tout au long de l'intervention.</p>
+                </div>
+
+                <!-- Diagnostic -->
+                <div class="domain-card domain-card--upcoming">
+                    <div class="domain-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="48" height="32" rx="4" class="svg-stroke" stroke-width="2"/>
+                            <polyline points="14,35 22,28 30,32 38,22 46,26 54,20" class="svg-stroke-accent" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="50" x2="56" y2="50" class="svg-stroke" stroke-width="2"/>
+                            <rect x="24" y="44" width="16" height="6" rx="1" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="domain-title">Diagnostic</h3>
+                    <p class="domain-desc">Analyse ECU et comportement moteur — service en développement.</p>
+                    <span class="domain-badge">À venir</span>
+                </div>
+
+                <!-- Solution RevX -->
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="32,8 56,20 56,44 32,56 8,44 8,20" class="svg-stroke" stroke-width="2" fill="none"/>
+                            <polygon points="32,18 46,26 46,38 32,46 18,38 18,26" class="svg-fill-accent" opacity="0.2"/>
+                            <polygon points="32,18 46,26 46,38 32,46 18,38 18,26" class="svg-stroke-accent" stroke-width="1.5" fill="none"/>
+                            <circle cx="32" cy="32" r="6" class="svg-stroke" stroke-width="1.5"/>
+                            <circle cx="32" cy="32" r="2" class="svg-fill-accent"/>
+                        </svg>
+                    </div>
+                    <h3 class="domain-title">Solution RevX</h3>
+                    <p class="domain-desc">Méthode structurée pour des interventions fiables et traçables.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="process" class="section" aria-labelledby="process-title">
-      <div class="wrap">
-        <h2 id="process-title">Comment ça marche</h2>
-        <p class="lead">Trois étapes, sans démonter l'ECU. Prérequis : tension stabilisée, interface valide, connexion stable.</p>
-        <div class="steps" role="list">
-          <div class="step" role="listitem">
-            <strong>1. Lecture OBD</strong>
-            <p>Backup d'origine (Flash/EEPROM si applicable). Vérifications tension & logs.</p>
-          </div>
-          <div class="step" role="listitem">
-            <strong>2. Calibration</strong>
-            <p>Analyse + préparation du fichier. Contrôles checksum & périmètre sécurité.</p>
-          </div>
-          <div class="step" role="listitem">
-            <strong>3. Écriture & validation</strong>
-            <p>Reflash assisté, test à chaud, retour d'expérience. Backup conservé.</p>
-          </div>
+    <!-- Positioning Section -->
+    <section class="section positioning">
+        <div class="container">
+            <div class="positioning-content">
+                <h2 class="section-title">Notre positionnement</h2>
+                <ul class="positioning-list">
+                    <li class="positioning-item">
+                        <svg class="positioning-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="10" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                        <span>Interventions maîtrisées</span>
+                    </li>
+                    <li class="positioning-item">
+                        <svg class="positioning-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="10" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                        <span>Fichiers sur mesure</span>
+                    </li>
+                    <li class="positioning-item">
+                        <svg class="positioning-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="10" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                        <span>Process structuré</span>
+                    </li>
+                    <li class="positioning-item">
+                        <svg class="positioning-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="10" class="svg-stroke" stroke-width="1.5"/>
+                        </svg>
+                        <span>Support réel</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="leadmag" class="section" aria-labelledby="lead-title">
-      <div class="wrap">
-        <div class="leadmag">
-          <div>
-            <h2 id="lead-title">Checklist pré-flash (gratuite)</h2>
-            <p class="lead">Préparez votre atelier en 5 points et évitez 90% des erreurs courantes.</p>
-          </div>
-          <a class="btn btn-outline" href="assets/Checklist pré-flash.pdf" download>Télécharger le PDF</a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo_revx.png" alt="REVX Systems" class="footer-logo">
+                    <p class="footer-tagline">Expertise ECU & solutions techniques</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Accueil</a>
+                    <a href="prestations.html">Prestations</a>
+                    <a href="diagnostic.html">Diagnostic</a>
+                    <a href="solution.html">Solution RevX</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <p class="footer-copy">&copy; 2026 REVX Systems. Tous droits réservés.</p>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <section id="waitlist" class="cta wrap" aria-labelledby="wl-title" style="padding: 28px;">
-      <h2 id="wl-title" style="margin-top:0">Rejoindre la liste pilote</h2>
-      <p class="sub" style="margin-top:-6px">Nous vous contactons dès l'ouverture des tests terrain. Places limitées.</p>
-      <form action="https://formsubmit.co/contact@revx-systems.fr" method="POST" aria-describedby="wl-note">
-        <input type="hidden" name="_subject" value="Nouvelle inscription liste pilote REVX Systems">
-        <input type="hidden" name="_next" value="https://www.revx-systems.fr/merci.html">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        
-        <div class="span-3">
-          <label for="name">Nom / Société</label>
-          <input id="name" name="name" type="text" placeholder="Garage Durand / Durand Motors" required />
-        </div>
-        <div class="span-3">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="vous@exemple.fr" required />
-        </div>
-        <div class="span-2">
-          <label for="phone">Téléphone</label>
-          <input id="phone" name="phone" type="tel" placeholder="+33 6 ..." />
-        </div>
-        <div class="span-2">
-          <label for="brand">Marque/Modèle</label>
-          <input id="brand" name="brand" type="text" placeholder="Polaris / CFMOTO / Segway ..." />
-        </div>
-        <div class="span-2">
-          <label for="ecu">ECU (si connu)</label>
-          <input id="ecu" name="ecu" type="text" placeholder="ME17.8.10, MSE6.0 ..." />
-        </div>
-        <div class="span-6">
-          <label for="msg">Commentaire</label>
-          <textarea id="msg" name="msg" placeholder="Disponibilités, localisation, contraintes…"></textarea>
-        </div>
-        <div class="span-6">
-          <button class="btn btn-primary" type="submit">M'inscrire sur la liste</button>
-        </div>
-        <p id="wl-note" class="sub" style="grid-column: 1 / -1">
-          Aucune vente avant validation technique. Vous pourrez vous désinscrire à tout moment.
-        </p>
-      </form>
-    </section>
-  </main>
-
-  <footer id="contact">
-    <div class="wrap">
-      <p class="legal">
-        © <span id="year"></span> REVX Systems — Micro‑entreprise (art. 293B CGI) — contact@revx-systems.fr
-      </p>
-      <p class="legal">
-        Usage <strong>off‑road / compétition</strong> selon réglementation locale. Support limité aux outils et configurations validés.
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    
-    function updateActiveNav() {
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-    
-    window.addEventListener('scroll', updateActiveNav);
-    
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-    
-    updateActiveNav();
-  </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

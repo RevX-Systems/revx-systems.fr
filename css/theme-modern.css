@@ -1,0 +1,716 @@
+/* ================================================
+   REVX Systems - Modern Theme (Charte A)
+   ================================================
+   Design "Studio" - Inspired by user request
+   Dark mode, Orange accents, Glow effects
+   ================================================ */
+
+:root {
+    /* Primary Colors - Deep Dark / Black */
+    --color-bg-primary: #050505;
+    --color-bg-secondary: #0a0a0a;
+    --color-bg-tertiary: #141414;
+    --color-bg-card: #111111;
+    --color-bg-card-hover: #1a1a1a;
+    
+    /* Text Colors */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a1a1aa;
+    --color-text-muted: #71717a;
+    
+    /* Accent - Studio Orange */
+    --color-accent: #FF6B35;
+    --color-accent-dim: #E85A2A;
+    --color-accent-bright: #FF8F6B;
+    --color-accent-subtle: rgba(255, 107, 53, 0.15);
+    
+    /* Borders */
+    --color-border: #27272a;
+    --color-border-subtle: #18181b;
+    
+    /* Status */
+    --color-upcoming: #FF6B35;
+    --color-upcoming-subtle: rgba(255, 107, 53, 0.1);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.15);
+    --shadow-accent: 0 0 25px rgba(255, 107, 53, 0.3);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================
+   Base Styling
+   ================================================ */
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+/* Typography Glow Effects */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+/* ================================================
+   Header
+   ================================================ */
+
+.header {
+    background-color: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.nav-link::after {
+    background-color: var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent);
+}
+
+.nav-link.active {
+    color: var(--color-text-primary);
+}
+
+/* Theme Toggle */
+.theme-label {
+    color: var(--color-text-muted);
+}
+
+.toggle-btn {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+}
+
+.toggle-option {
+    color: var(--color-text-muted);
+}
+
+.toggle-option.active {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--color-accent-subtle);
+}
+
+.toggle-option:hover:not(.active) {
+    color: var(--color-text-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn span {
+    background-color: var(--color-text-secondary);
+}
+
+.mobile-nav {
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav-link {
+    color: var(--color-text-secondary);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-accent);
+}
+
+/* ================================================
+   Hero
+   ================================================ */
+
+.hero {
+    background-image: url('../assets/backgound2.png');
+}
+
+.hero::before {
+    background: radial-gradient(circle at center, rgba(5,5,5,0.7) 0%, rgba(5,5,5,1) 100%);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-title {
+    color: var(--color-text-primary);
+    font-size: 4rem; /* Larger */
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
+}
+
+/* Orange text for highlight if we had span, but apply to title generally for now or accent usage */
+.hero-title strong, 
+.hero-title span {
+    color: var(--color-accent);
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+}
+
+.hero-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* ================================================
+   Buttons
+   ================================================ */
+
+.btn {
+    border-radius: 8px; /* Slightly more rounded */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 16px 32px;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: #000000; /* Black text on Orange for high contrast/studio look */
+    border: 1px solid var(--color-accent);
+    box-shadow: var(--shadow-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-bright);
+    border-color: var(--color-accent-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(255, 107, 53, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-color: var(--color-text-primary);
+    transform: translateY(-2px);
+}
+
+/* ================================================
+   Section Titles
+   ================================================ */
+
+.section-title {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    opacity: 0.9;
+    text-shadow: 0 0 10px var(--color-accent-subtle);
+    text-transform: uppercase;
+}
+
+/* ================================================
+   Domains Section
+   ================================================ */
+
+.domains {
+    background-color: var(--color-bg-primary);
+}
+
+.domain-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 40px 30px;
+}
+
+.domain-card:hover {
+    background-color: var(--color-bg-card-hover);
+    border-color: var(--color-border); /* Subtle change */
+    transform: translateY(-5px);
+}
+
+.domain-icon {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 12px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.domain-icon svg {
+    /* Retint SVGs to orange via filter if needed, 
+       but overriding stroke/fill colors is better */
+}
+
+/* Important: Override SVG colors for this theme locally */
+.domain-card:hover .domain-title {
+    color: var(--color-accent);
+    text-shadow: 0 0 15px var(--color-accent-subtle);
+}
+
+.domain-title {
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.domain-desc {
+    color: var(--color-text-secondary);
+}
+
+.domain-badge {
+    background-color: rgba(255, 107, 53, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* ================================================
+   Positioning Section
+   ================================================ */
+
+.positioning {
+    background-color: var(--color-bg-secondary);
+}
+
+.positioning-item {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    border-radius: 12px;
+}
+
+.positioning-item span {
+    color: var(--color-text-primary);
+}
+
+/* ================================================
+   Page Header
+   ================================================ */
+
+.page-header {
+    background: radial-gradient(circle at top, rgba(20,20,20,1) 0%, rgba(5,5,5,1) 100%);
+    padding-top: 180px;
+}
+
+.page-title {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+.page-subtitle {
+    color: var(--color-text-secondary);
+}
+
+.page-badge {
+    background-color: rgba(255, 107, 53, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* ================================================
+   Service Sections
+   ================================================ */
+
+.service-section {
+    background-color: var(--color-bg-primary);
+}
+
+.service-section--alt {
+    background-color: var(--color-bg-secondary);
+}
+
+.service-title {
+    color: var(--color-text-primary);
+}
+
+.service-title::before {
+    content: none; /* Reset label for other titles */
+}
+
+.service-intro {
+    color: var(--color-text-primary);
+}
+
+.service-text {
+    color: var(--color-text-secondary);
+}
+
+.service-subtitle {
+    color: var(--color-text-primary);
+}
+
+.service-type {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.service-type h4 {
+    color: var(--color-text-primary);
+}
+
+.service-type p {
+    color: var(--color-text-secondary);
+}
+
+.support-feature-text h4 {
+    color: var(--color-text-primary);
+}
+
+.support-feature-text p {
+    color: var(--color-text-secondary);
+}
+
+/* ================================================
+   Diagnostic Page
+   ================================================ */
+
+.diagnostic-intro {
+    background-color: var(--color-bg-primary);
+}
+
+.intro-text {
+    color: var(--color-text-secondary);
+}
+
+.intro-text--lead {
+    color: var(--color-text-primary);
+}
+
+.diagnostic-features {
+    background-color: var(--color-bg-secondary);
+}
+
+.feature-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.feature-title {
+    color: var(--color-text-primary);
+}
+
+.feature-desc {
+    color: var(--color-text-secondary);
+}
+
+.diagnostic-status {
+    background-color: var(--color-bg-primary);
+}
+
+.status-block {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.status-title {
+    color: var(--color-text-primary);
+}
+
+.status-text {
+    color: var(--color-text-secondary);
+}
+
+.diagnostic-flow {
+    background-color: var(--color-bg-secondary);
+}
+
+/* ================================================
+   Solution Page
+   ================================================ */
+
+.philosophy {
+    background-color: var(--color-bg-primary);
+}
+
+.philosophy-lead {
+    color: var(--color-text-primary);
+}
+
+.philosophy-desc {
+    color: var(--color-text-secondary);
+}
+
+.method {
+    background-color: var(--color-bg-secondary);
+}
+
+.method-step {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.method-number {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    background: rgba(255, 107, 53, 0.1);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.method-title {
+    color: var(--color-text-primary);
+}
+
+.method-desc {
+    color: var(--color-text-secondary);
+}
+
+.approach {
+    background-color: var(--color-bg-primary);
+}
+
+.approach-item {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.approach-text h3 {
+    color: var(--color-text-primary);
+}
+
+.approach-text p {
+    color: var(--color-text-secondary);
+}
+
+.summary-visual {
+    background-color: var(--color-bg-secondary);
+}
+
+/* ================================================
+   Contact Page
+   ================================================ */
+
+.about {
+    background-color: var(--color-bg-primary);
+}
+
+.about-lead {
+    color: var(--color-text-primary);
+}
+
+.about-desc {
+    color: var(--color-text-secondary);
+}
+
+.contact-info {
+    background-color: var(--color-bg-secondary);
+}
+
+.contact-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.contact-label {
+    color: var(--color-text-muted);
+}
+
+.contact-value {
+    color: var(--color-accent);
+}
+
+.contact-note {
+    color: var(--color-text-muted);
+}
+
+.process-note {
+    background-color: var(--color-bg-primary);
+}
+
+.note-block {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    background-image: linear-gradient(135deg, rgba(255, 107, 53, 0.03) 0%, transparent 100%);
+}
+
+.note-title {
+    color: var(--color-text-primary);
+}
+
+.note-text {
+    color: var(--color-text-secondary);
+}
+
+.values {
+    background-color: var(--color-bg-secondary);
+}
+
+.value-item h4 {
+    color: var(--color-text-primary);
+}
+
+.value-item p {
+    color: var(--color-text-secondary);
+}
+
+/* ================================================
+   CTA Section
+   ================================================ */
+
+.cta-section {
+    background-color: var(--color-bg-primary);
+}
+
+.cta-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-title {
+    color: var(--color-text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-text {
+    color: var(--color-text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================================
+   Footer
+   ================================================ */
+
+.footer {
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-tagline {
+    color: var(--color-text-muted);
+}
+
+.footer-nav a {
+    color: var(--color-text-secondary);
+}
+
+.footer-nav a:hover {
+    color: var(--color-accent);
+}
+
+.footer-copy {
+    color: var(--color-text-muted);
+}
+
+/* ================================================
+   SVG Colors
+   ================================================ */
+
+.svg-stroke {
+    stroke: var(--color-text-secondary);
+}
+
+.svg-stroke-accent {
+    stroke: var(--color-accent);
+}
+
+.svg-fill-accent {
+    fill: var(--color-accent);
+}
+
+.svg-fill-dark {
+    fill: var(--color-bg-tertiary);
+}
+
+.svg-text,
+.svg-text-small {
+    fill: var(--color-text-secondary);
+}
+
+/* ================================================
+   Scrollbar (WebKit)
+   ================================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-dim);
+}
+
+/* ================================================
+   Selection
+   ================================================ */
+
+::selection {
+    background-color: var(--color-accent);
+    color: #000000;
+}

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prestations REVX Systems - Reprogrammation ECU, support technique et assistance pour véhicules de loisirs.">
+    <title>Prestations - REVX Systems</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme-modern.css" id="theme-modern">
+    <link rel="stylesheet" href="css/theme-v1.css" id="theme-v1" disabled>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_revx.png" alt="REVX Systems">
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="prestations.html" class="nav-link active">Prestations</a></li>
+                    <li><a href="diagnostic.html" class="nav-link">Diagnostic</a></li>
+                    <li><a href="solution.html" class="nav-link">Solution RevX</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
+            <li><a href="prestations.html" class="mobile-nav-link active">Prestations</a></li>
+            <li><a href="diagnostic.html" class="mobile-nav-link">Diagnostic</a></li>
+            <li><a href="solution.html" class="mobile-nav-link">Solution RevX</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Prestations</h1>
+            <p class="page-subtitle">Interventions ECU et accompagnement technique</p>
+        </div>
+    </section>
+
+    <!-- Reprogrammation ECU Section -->
+    <section class="section service-section">
+        <div class="container">
+            <div class="service-block">
+                <div class="service-content">
+                    <h2 class="service-title">Reprogrammation ECU</h2>
+                    <p class="service-intro">
+                        Chaque intervention est réalisée sur la base d'une calibration spécifique, 
+                        adaptée au véhicule et à sa configuration réelle. Nous ne travaillons pas 
+                        avec des fichiers génériques ou des bases de données préformatées.
+                    </p>
+                    <p class="service-text">
+                        L'objectif est d'obtenir un fonctionnement cohérent et fiable, dans le respect 
+                        des contraintes mécaniques et des conditions d'utilisation. Chaque fichier 
+                        est validé avant livraison selon un process interne strict.
+                    </p>
+                    
+                    <div class="service-types">
+                        <h3 class="service-subtitle">Types d'interventions</h3>
+                        <div class="service-types-grid">
+                            <!-- Stage 1 -->
+                            <div class="service-type">
+                                <div class="service-type-icon">
+                                    <svg viewBox="0 0 64 64" fill="none">
+                                        <!-- Boitier ECU -->
+                                        <rect x="12" y="16" width="40" height="32" rx="4" class="svg-stroke" stroke-width="2"/>
+                                        <path d="M8 24H12 M8 32H12 M8 40H12" class="svg-stroke" stroke-width="2"/>
+                                        <!-- Courbe de puissance -->
+                                        <path d="M22 40 L30 40 L38 30 L44 24" class="svg-stroke-accent" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="44" cy="24" r="3" class="svg-fill-accent"/>
+                                    </svg>
+                                </div>
+                                <h4>Stage 1</h4>
+                                <p>Optimisation des paramètres d'injection et d'allumage dans les limites constructeur étendues.</p>
+                            </div>
+
+                            <!-- Débridage -->
+                            <div class="service-type">
+                                <div class="service-type-icon">
+                                    <svg viewBox="0 0 64 64" fill="none">
+                                        <!-- Cadran -->
+                                        <path d="M12 44 A 22 22 0 1 1 52 44" class="svg-stroke" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Graduations -->
+                                        <path d="M32 14 V18 M50 22 L46 24 M14 22 L18 24" class="svg-stroke" stroke-width="2"/>
+                                        <!-- Aiguille dans le rouge -->
+                                        <path d="M32 38 L48 22" class="svg-stroke-accent" stroke-width="3" stroke-linecap="round"/>
+                                        <circle cx="32" cy="38" r="4" class="svg-fill-accent"/>
+                                    </svg>
+                                </div>
+                                <h4>Débridage</h4>
+                                <p>Suppression des limitations logicielles de vitesse ou de régime selon le contexte d'usage.</p>
+                            </div>
+
+                            <!-- E85 -->
+                            <div class="service-type">
+                                <div class="service-type-icon">
+                                    <svg viewBox="0 0 64 64" fill="none">
+                                        <!-- Goutte -->
+                                        <path d="M32 10 C32 10 16 28 16 40 A 16 16 0 0 0 48 40 C48 28 32 10 32 10Z" class="svg-stroke" stroke-width="2"/>
+                                        <!-- Symbole Bio/Engrenage -->
+                                        <path d="M32 20 L32 26" class="svg-stroke-accent" stroke-width="2"/>
+                                        <circle cx="32" cy="40" r="6" class="svg-stroke-accent" stroke-width="2" stroke-dasharray="2 2"/>
+                                        <text x="32" y="58" text-anchor="middle" font-size="9" font-weight="700" class="svg-fill-accent" letter-spacing="1">E85</text>
+                                    </svg>
+                                </div>
+                                <h4>Conversion E85</h4>
+                                <p>Adaptation des cartographies pour fonctionnement au bioéthanol, selon compatibilité véhicule.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <svg class="service-illustration" viewBox="0 0 400 320" fill="none">
+                        <!-- ECU Moderne et Détaillé -->
+                        
+                        <!-- Boîtier principal ECU -->
+                        <defs>
+                            <linearGradient id="ecuGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Ombre portée -->
+                        <ellipse cx="200" cy="280" rx="130" ry="15" fill="#000" opacity="0.2"/>
+                        
+                        <!-- Châssis ECU -->
+                        <rect x="60" y="40" width="280" height="220" rx="16" class="svg-stroke" stroke-width="2.5" fill="url(#ecuGradient)"/>
+                        <rect x="70" y="50" width="260" height="200" rx="12" class="svg-stroke" stroke-width="1" opacity="0.3"/>
+                        
+                        <!-- Étiquette ECU -->
+                        <rect x="75" y="55" width="120" height="30" rx="4" class="svg-fill-accent" opacity="0.15"/>
+                        <text x="135" y="73" text-anchor="middle" class="svg-text-small" font-weight="600" opacity="0.8">ECU REVX</text>
+                        <text x="135" y="82" text-anchor="middle" font-size="8" opacity="0.5">v2.4.1</text>
+                        
+                        <!-- PCB Board (Circuit imprimé) -->
+                        <rect x="80" y="95" width="240" height="145" rx="6" fill="#0d3320" opacity="0.3"/>
+                        
+                        <!-- Processeur principal -->
+                        <g transform="translate(200, 145)">
+                            <rect x="-40" y="-40" width="80" height="80" rx="4" class="svg-stroke" stroke-width="2" fill="#1a1a1a"/>
+                            <rect x="-35" y="-35" width="70" height="70" rx="3" class="svg-fill-accent" opacity="0.2"/>
+                            <!-- Grid pattern sur processeur -->
+                            <path d="M-30 -20 H 30 M-30 -10 H 30 M-30 0 H 30 M-30 10 H 30 M-30 20 H 30" class="svg-stroke" stroke-width="0.5" opacity="0.3"/>
+                            <path d="M-20 -30 V 30 M-10 -30 V 30 M0 -30 V 30 M10 -30 V 30 M20 -30 V 30" class="svg-stroke" stroke-width="0.5" opacity="0.3"/>
+                            <text y="5" text-anchor="middle" font-size="8" class="svg-text-small" font-weight="600">MCU</text>
+                        </g>
+                        
+                        <!-- Connecteurs (sans fils) -->
+                        <!-- Connecteur gauche -->
+                        <g transform="translate(40, 140)">
+                            <rect width="25" height="60" rx="3" class="svg-stroke" stroke-width="1.5" fill="#2a2a2a"/>
+                            <line x1="3" y1="10" x2="3" y2="50" class="svg-stroke" stroke-width="8" opacity="0.2"/>
+                            <!-- Pins -->
+                            <rect x="5" y="12" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="18" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="24" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="30" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="36" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="42" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                        </g>
+                        
+                        <!-- Connecteur droit -->
+                        <g transform="translate(335, 140)">
+                            <rect width="25" height="60" rx="3" class="svg-stroke" stroke-width="1.5" fill="#2a2a2a"/>
+                            <line x1="20" y1="10" x2="20" y2="50" class="svg-stroke" stroke-width="8" opacity="0.2"/>
+                            <rect x="5" y="12" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="18" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="24" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="30" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="36" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                            <rect x="5" y="42" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
+                        </g>
+                        
+                        <!-- Puces mémoire -->
+                        <g transform="translate(95, 110)">
+                            <rect width="28" height="28" rx="2" class="svg-stroke" stroke-width="1.5" fill="#1a1a1a"/>
+                            <text x="14" y="18" text-anchor="middle" font-size="6" opacity="0.7">FLASH</text>
+                        </g>
+                        <g transform="translate(95, 200)">
+                            <rect width="28" height="28" rx="2" class="svg-stroke" stroke-width="1.5" fill="#1a1a1a"/>
+                            <text x="14" y="18" text-anchor="middle" font-size="6" opacity="0.7">EEPROM</text>
+                        </g>
+                        
+                        <!-- Composants passifs (condensateurs, résistances) -->
+                        <rect x="275" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
+                        <rect x="290" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
+                        <rect x="305" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
+                        
+                        <rect x="275" y="210" width="12" height="8" rx="1" class="svg-stroke-accent" stroke-width="1" fill="none" opacity="0.6"/>
+                        <rect x="290" y="210" width="12" height="8" rx="1" class="svg-stroke-accent" stroke-width="1" fill="none" opacity="0.6"/>
+                        
+                        <!-- Pistes PCB (traces) -->
+                        <path d="M160 145 H 130" class="svg-stroke-accent" stroke-width="2" opacity="0.5"/>
+                        <path d="M160 155 H 130" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
+                        <path d="M240 145 H 270" class="svg-stroke-accent" stroke-width="2" opacity="0.5"/>
+                        <path d="M240 155 H 270" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
+                        
+                        <path d="M200 105 V 130" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
+                        <path d="M200 185 V 210" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
+                        
+                        <!-- LEDs de statut -->
+                        <circle cx="310" cy="225" r="3" class="svg-fill-accent" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="300" cy="225" r="3" fill="#4ade80" opacity="0.8"/>
+                        <circle cx="290" cy="225" r="3" class="svg-stroke" stroke-width="1" opacity="0.4"/>
+                        
+                        <!-- Petits labels -->
+                        <text x="310" y="238" text-anchor="middle" font-size="6" opacity="0.5">PWR</text>
+                        <text x="300" y="238" text-anchor="middle" font-size="6" opacity="0.5">RDY</text>
+                        <text x="290" y="238" text-anchor="middle" font-size="6" opacity="0.5">ERR</text>
+                        
+                        <!-- Vis de fixation (détails réalistes) -->
+                        <circle cx="75" cy="55" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
+                        <path d="M73 55 H 77 M75 53 V 57" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
+                        
+                        <circle cx="325" cy="55" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
+                        <path d="M323 55 H 327 M325 53 V 57" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
+                        
+                        <circle cx="75" cy="245" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
+                        <path d="M73 245 H 77 M75 243 V 247" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
+                        
+                        <circle cx="325" cy="245" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
+                        <path d="M323 245 H 327 M325 243 V 247" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section service-section service-section--alt">
+        <div class="container">
+            <div class="service-block service-block--reverse">
+                <div class="service-content">
+                    <h2 class="service-title">Support & Assistance technique</h2>
+                    <p class="service-intro">
+                        Une intervention ECU ne se limite pas à la livraison d'un fichier. 
+                        Nous accompagnons chaque opération de bout en bout, avec un support 
+                        accessible et réactif.
+                    </p>
+                    
+                    <div class="support-features">
+                        <div class="support-feature">
+                            <div class="support-feature-icon">
+                                <svg viewBox="0 0 32 32" fill="none">
+                                    <circle cx="16" cy="16" r="12" class="svg-stroke" stroke-width="1.5"/>
+                                    <path d="M16 10 L16 16 L20 18" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="support-feature-text">
+                                <h4>Accompagnement à distance</h4>
+                                <p>Assistance pendant les phases de lecture et d'écriture ECU.</p>
+                            </div>
+                        </div>
+                        <div class="support-feature">
+                            <div class="support-feature-icon">
+                                <svg viewBox="0 0 32 32" fill="none">
+                                    <rect x="6" y="8" width="20" height="16" rx="2" class="svg-stroke" stroke-width="1.5"/>
+                                    <polyline points="10,18 14,14 18,17 22,12" class="svg-stroke-accent" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="support-feature-text">
+                                <h4>Aide aux opérations ECU</h4>
+                                <p>Guidance technique pour les procédures de reprogrammation.</p>
+                            </div>
+                        </div>
+                        <div class="support-feature">
+                            <div class="support-feature-icon">
+                                <svg viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4 L16 12" class="svg-stroke" stroke-width="1.5"/>
+                                    <circle cx="16" cy="20" r="8" class="svg-stroke" stroke-width="1.5"/>
+                                    <path d="M13 20 L15 22 L19 18" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="support-feature-text">
+                                <h4>Support après intervention</h4>
+                                <p>Suivi post-installation et ajustements si nécessaire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <svg class="service-illustration" viewBox="0 0 300 280" fill="none">
+                        <!-- Central hub -->
+                        <circle cx="150" cy="140" r="40" class="svg-stroke" stroke-width="2"/>
+                        <circle cx="150" cy="140" r="25" class="svg-fill-accent" opacity="0.15"/>
+                        <circle cx="150" cy="140" r="15" class="svg-stroke-accent" stroke-width="2"/>
+                        <!-- Connection lines -->
+                        <line x1="150" y1="100" x2="150" y2="60" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <line x1="185" y1="120" x2="220" y2="95" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <line x1="185" y1="160" x2="220" y2="185" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <line x1="150" y1="180" x2="150" y2="220" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <line x1="115" y1="160" x2="80" y2="185" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <line x1="115" y1="120" x2="80" y2="95" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <!-- Nodes -->
+                        <circle cx="150" cy="50" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <rect x="143" y="43" width="14" height="14" rx="2" class="svg-fill-accent" opacity="0.3"/>
+                        
+                        <circle cx="230" cy="85" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <path d="M225 85 L230 80 L235 85 L230 90 Z" class="svg-fill-accent"/>
+                        
+                        <circle cx="230" cy="195" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <rect x="223" y="188" width="14" height="14" rx="7" class="svg-stroke-accent" stroke-width="1.5"/>
+                        
+                        <circle cx="150" cy="230" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <path d="M145 227 L148 233 L155 225" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                        
+                        <circle cx="70" cy="195" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <line x1="65" y1="195" x2="75" y2="195" class="svg-stroke-accent" stroke-width="2"/>
+                        <line x1="70" y1="190" x2="70" y2="200" class="svg-stroke-accent" stroke-width="2"/>
+                        
+                        <circle cx="70" cy="85" r="15" class="svg-stroke" stroke-width="1.5"/>
+                        <path d="M65 82 L70 92 L75 82" class="svg-stroke-accent" stroke-width="1.5" fill="none"/>
+                        
+                        <!-- Pulse rings -->
+                        <circle cx="150" cy="140" r="50" class="svg-stroke-accent" stroke-width="1" opacity="0.3"/>
+                        <circle cx="150" cy="140" r="60" class="svg-stroke-accent" stroke-width="0.5" opacity="0.15"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Une question sur nos prestations ?</h2>
+                <p class="cta-text">Chaque demande est étudiée individuellement. Contactez-nous pour échanger sur votre projet.</p>
+                <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo_revx.png" alt="REVX Systems" class="footer-logo">
+                    <p class="footer-tagline">Expertise ECU & solutions techniques</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Accueil</a>
+                    <a href="prestations.html">Prestations</a>
+                    <a href="diagnostic.html">Diagnostic</a>
+                    <a href="solution.html">Solution RevX</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <p class="footer-copy">&copy; 2026 REVX Systems. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
