@@ -651,6 +651,11 @@ button {
     align-items: center;
 }
 
+.intro-block .section-title,
+.intro-content .section-title {
+    text-align: left;
+}
+
 .intro-text {
     font-size: 1rem;
     line-height: 1.8;
@@ -1140,6 +1145,283 @@ button {
 .footer-copy {
     font-size: 0.8rem;
     opacity: 0.5;
+}
+
+/* ================================================
+   Contact Form Section
+   ================================================ */
+
+.contact-form-section {
+    padding-top: 40px;
+}
+
+.contact-form-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.contact-form-intro {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.form-intro-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+}
+
+.form-intro-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 24px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-intro-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.intro-note-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-label .required {
+    color: #e74c3c;
+    margin-left: 2px;
+}
+
+.form-input {
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+    opacity: 0.5;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-color, #4a9eff);
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.15);
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 44px;
+}
+
+.form-select option {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+}
+
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-size: 1rem;
+}
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Success Message */
+.form-success-message {
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: 16px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+}
+
+.success-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.success-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Phone/WhatsApp Section */
+.phone-section {
+    padding-top: 20px;
+}
+
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 16px;
+    min-height: 120px;
+}
+
+.phone-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+}
+
+.phone-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.phone-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 16px;
+}
+
+.phone-schedule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.schedule-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.phone-action {
+    flex-shrink: 0;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    background: #25D366;
+    color: #fff;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Form */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .phone-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 32px;
+        padding: 32px 24px;
+    }
+    
+    .phone-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .phone-schedule {
+        justify-content: center;
+    }
 }
 
 /* ================================================

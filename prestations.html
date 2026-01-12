@@ -114,12 +114,38 @@
                             <div class="service-type">
                                 <div class="service-type-icon">
                                     <svg viewBox="0 0 64 64" fill="none">
-                                        <!-- Goutte -->
-                                        <path d="M32 10 C32 10 16 28 16 40 A 16 16 0 0 0 48 40 C48 28 32 10 32 10Z" class="svg-stroke" stroke-width="2"/>
-                                        <!-- Symbole Bio/Engrenage -->
-                                        <path d="M32 20 L32 26" class="svg-stroke-accent" stroke-width="2"/>
-                                        <circle cx="32" cy="40" r="6" class="svg-stroke-accent" stroke-width="2" stroke-dasharray="2 2"/>
-                                        <text x="32" y="58" text-anchor="middle" font-size="9" font-weight="700" class="svg-fill-accent" letter-spacing="1">E85</text>
+                                        <!-- Pistolet E85 vu de dessus -->
+                                        
+                                        <!-- Tuyau (en haut) -->
+                                        <rect x="26" y="4" width="12" height="8" rx="2" class="svg-stroke" stroke-width="2" opacity="0.7"/>
+                                        
+                                        <!-- Corps principal du pistolet -->
+                                        <rect x="18" y="12" width="28" height="36" rx="5" class="svg-stroke" stroke-width="2.5" fill="#0a0a0a"/>
+                                        <rect x="20" y="14" width="24" height="32" rx="4" class="svg-stroke" stroke-width="1" opacity="0.3"/>
+                                        
+                                        <!-- Badge circulaire E85 au centre -->
+                                        <circle cx="32" cy="28" r="11" class="svg-stroke-accent" stroke-width="2.5"/>
+                                        <circle cx="32" cy="28" r="9" class="svg-fill-accent" opacity="0.1"/>
+                                        
+                                        <!-- Texte E85 (bien espacé du cercle) -->
+                                        <text x="32" y="32.5" text-anchor="middle" font-size="10" font-weight="700" class="svg-fill-accent" letter-spacing="-0.3">E85</text>
+                                        
+                                        <!-- Poignée inférieure (vue de dessus) -->
+                                        <path d="M22 48 Q18 52 18 56 L22 58 L42 58 L46 56 Q46 52 42 48" class="svg-stroke" stroke-width="2.5" stroke-linejoin="round"/>
+                                        <rect x="24" y="50" width="16" height="6" rx="2" class="svg-fill-accent" opacity="0.2"/>
+                                        
+                                        <!-- Détails latéraux -->
+                                        <line x1="18" y1="18" x2="15" y2="18" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="18" y1="24" x2="15" y2="24" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="18" y1="30" x2="15" y2="30" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        
+                                        <line x1="46" y1="18" x2="49" y2="18" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="46" y1="24" x2="49" y2="24" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="46" y1="30" x2="49" y2="30" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                                        
+                                        <!-- LEDs/indicateurs -->
+                                        <circle cx="24" cy="16" r="1.5" class="svg-fill-accent" opacity="0.8"/>
+                                        <circle cx="40" cy="16" r="1.5" class="svg-fill-accent" opacity="0.8"/>
                                     </svg>
                                 </div>
                                 <h4>Conversion E85</h4>
@@ -129,120 +155,59 @@
                     </div>
                 </div>
                 <div class="service-visual">
-                    <svg class="service-illustration" viewBox="0 0 400 320" fill="none">
-                        <!-- ECU Moderne et Détaillé -->
+                    <div style="position: relative; width: 100%; height: 550px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Image Prog avec effets -->
+                        <img src="assets/Prog.png" alt="Programming Icon" style="
+                            width: auto;
+                            height: 92%;
+                            max-width: 103.5%;
+                            object-fit: contain;
+                            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+                            mask-image: 
+                              linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0)),
+                              linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0));
+                            mask-composite: intersect;
+                            -webkit-mask-image: 
+                              linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0)),
+                              linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1) 30px, rgba(0,0,0,1) calc(100% - 30px), rgba(0,0,0,0));
+                            -webkit-mask-composite: source-in;
+                            position: relative;
+                            z-index: 2;
+                        "/>
                         
-                        <!-- Boîtier principal ECU -->
-                        <defs>
-                            <linearGradient id="ecuGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Ombre portée -->
-                        <ellipse cx="200" cy="280" rx="130" ry="15" fill="#000" opacity="0.2"/>
-                        
-                        <!-- Châssis ECU -->
-                        <rect x="60" y="40" width="280" height="220" rx="16" class="svg-stroke" stroke-width="2.5" fill="url(#ecuGradient)"/>
-                        <rect x="70" y="50" width="260" height="200" rx="12" class="svg-stroke" stroke-width="1" opacity="0.3"/>
-                        
-                        <!-- Étiquette ECU -->
-                        <rect x="75" y="55" width="120" height="30" rx="4" class="svg-fill-accent" opacity="0.15"/>
-                        <text x="135" y="73" text-anchor="middle" class="svg-text-small" font-weight="600" opacity="0.8">ECU REVX</text>
-                        <text x="135" y="82" text-anchor="middle" font-size="8" opacity="0.5">v2.4.1</text>
-                        
-                        <!-- PCB Board (Circuit imprimé) -->
-                        <rect x="80" y="95" width="240" height="145" rx="6" fill="#0d3320" opacity="0.3"/>
-                        
-                        <!-- Processeur principal -->
-                        <g transform="translate(200, 145)">
-                            <rect x="-40" y="-40" width="80" height="80" rx="4" class="svg-stroke" stroke-width="2" fill="#1a1a1a"/>
-                            <rect x="-35" y="-35" width="70" height="70" rx="3" class="svg-fill-accent" opacity="0.2"/>
-                            <!-- Grid pattern sur processeur -->
-                            <path d="M-30 -20 H 30 M-30 -10 H 30 M-30 0 H 30 M-30 10 H 30 M-30 20 H 30" class="svg-stroke" stroke-width="0.5" opacity="0.3"/>
-                            <path d="M-20 -30 V 30 M-10 -30 V 30 M0 -30 V 30 M10 -30 V 30 M20 -30 V 30" class="svg-stroke" stroke-width="0.5" opacity="0.3"/>
-                            <text y="5" text-anchor="middle" font-size="8" class="svg-text-small" font-weight="600">MCU</text>
-                        </g>
-                        
-                        <!-- Connecteurs (sans fils) -->
-                        <!-- Connecteur gauche -->
-                        <g transform="translate(40, 140)">
-                            <rect width="25" height="60" rx="3" class="svg-stroke" stroke-width="1.5" fill="#2a2a2a"/>
-                            <line x1="3" y1="10" x2="3" y2="50" class="svg-stroke" stroke-width="8" opacity="0.2"/>
-                            <!-- Pins -->
-                            <rect x="5" y="12" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="18" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="24" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="30" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="36" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="42" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                        </g>
-                        
-                        <!-- Connecteur droit -->
-                        <g transform="translate(335, 140)">
-                            <rect width="25" height="60" rx="3" class="svg-stroke" stroke-width="1.5" fill="#2a2a2a"/>
-                            <line x1="20" y1="10" x2="20" y2="50" class="svg-stroke" stroke-width="8" opacity="0.2"/>
-                            <rect x="5" y="12" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="18" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="24" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="30" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="36" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                            <rect x="5" y="42" width="15" height="2" rx="0.5" class="svg-fill-accent" opacity="0.6"/>
-                        </g>
-                        
-                        <!-- Puces mémoire -->
-                        <g transform="translate(95, 110)">
-                            <rect width="28" height="28" rx="2" class="svg-stroke" stroke-width="1.5" fill="#1a1a1a"/>
-                            <text x="14" y="18" text-anchor="middle" font-size="6" opacity="0.7">FLASH</text>
-                        </g>
-                        <g transform="translate(95, 200)">
-                            <rect width="28" height="28" rx="2" class="svg-stroke" stroke-width="1.5" fill="#1a1a1a"/>
-                            <text x="14" y="18" text-anchor="middle" font-size="6" opacity="0.7">EEPROM</text>
-                        </g>
-                        
-                        <!-- Composants passifs (condensateurs, résistances) -->
-                        <rect x="275" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
-                        <rect x="290" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
-                        <rect x="305" y="110" width="12" height="18" rx="1" class="svg-stroke" stroke-width="1" fill="#3a3a3a" opacity="0.8"/>
-                        
-                        <rect x="275" y="210" width="12" height="8" rx="1" class="svg-stroke-accent" stroke-width="1" fill="none" opacity="0.6"/>
-                        <rect x="290" y="210" width="12" height="8" rx="1" class="svg-stroke-accent" stroke-width="1" fill="none" opacity="0.6"/>
-                        
-                        <!-- Pistes PCB (traces) -->
-                        <path d="M160 145 H 130" class="svg-stroke-accent" stroke-width="2" opacity="0.5"/>
-                        <path d="M160 155 H 130" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
-                        <path d="M240 145 H 270" class="svg-stroke-accent" stroke-width="2" opacity="0.5"/>
-                        <path d="M240 155 H 270" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
-                        
-                        <path d="M200 105 V 130" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
-                        <path d="M200 185 V 210" class="svg-stroke-accent" stroke-width="2" opacity="0.4"/>
-                        
-                        <!-- LEDs de statut -->
-                        <circle cx="310" cy="225" r="3" class="svg-fill-accent" opacity="0.9">
-                            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
-                        </circle>
-                        <circle cx="300" cy="225" r="3" fill="#4ade80" opacity="0.8"/>
-                        <circle cx="290" cy="225" r="3" class="svg-stroke" stroke-width="1" opacity="0.4"/>
-                        
-                        <!-- Petits labels -->
-                        <text x="310" y="238" text-anchor="middle" font-size="6" opacity="0.5">PWR</text>
-                        <text x="300" y="238" text-anchor="middle" font-size="6" opacity="0.5">RDY</text>
-                        <text x="290" y="238" text-anchor="middle" font-size="6" opacity="0.5">ERR</text>
-                        
-                        <!-- Vis de fixation (détails réalistes) -->
-                        <circle cx="75" cy="55" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
-                        <path d="M73 55 H 77 M75 53 V 57" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
-                        
-                        <circle cx="325" cy="55" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
-                        <path d="M323 55 H 327 M325 53 V 57" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
-                        
-                        <circle cx="75" cy="245" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
-                        <path d="M73 245 H 77 M75 243 V 247" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
-                        
-                        <circle cx="325" cy="245" r="4" class="svg-stroke" stroke-width="1" opacity="0.6"/>
-                        <path d="M323 245 H 327 M325 243 V 247" class="svg-stroke" stroke-width="0.8" opacity="0.4"/>
-                    </svg>
+                        <!-- Ombre diffuse sous l'image -->
+                        <div style="
+                            position: absolute;
+                            bottom: 15%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 60%;
+                            height: 30px;
+                            background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+                            filter: blur(15px);
+                            z-index: 1;
+                        "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBD Priority Section -->
+    <section class="section obd-priority">
+        <div class="container">
+            <div class="intro-block">
+                <div class="intro-content">
+                    <h2 class="section-title">Interventions à distance - priorité OBD</h2>
+                    <p class="intro-text intro-text--lead">
+                        Les opérations de reprogrammation sont réalisées à distance, dans un cadre maîtrisé.
+                        Lorsque cela est possible, la voie diagnostic (OBD) est privilégiée afin de limiter 
+                        toute intervention sur le calculateur.
+                    </p>
+                    <p class="intro-text">
+                        Chaque configuration est étudiée afin de déterminer la méthode la plus adaptée au 
+                        véhicule et à son environnement.
+                    </p>
                 </div>
             </div>
         </div>
@@ -301,41 +266,66 @@
                     </div>
                 </div>
                 <div class="service-visual">
-                    <svg class="service-illustration" viewBox="0 0 300 280" fill="none">
-                        <!-- Central hub -->
-                        <circle cx="150" cy="140" r="40" class="svg-stroke" stroke-width="2"/>
-                        <circle cx="150" cy="140" r="25" class="svg-fill-accent" opacity="0.15"/>
-                        <circle cx="150" cy="140" r="15" class="svg-stroke-accent" stroke-width="2"/>
-                        <!-- Connection lines -->
-                        <line x1="150" y1="100" x2="150" y2="60" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <line x1="185" y1="120" x2="220" y2="95" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <line x1="185" y1="160" x2="220" y2="185" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <line x1="150" y1="180" x2="150" y2="220" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <line x1="115" y1="160" x2="80" y2="185" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <line x1="115" y1="120" x2="80" y2="95" class="svg-stroke" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <!-- Nodes -->
-                        <circle cx="150" cy="50" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <rect x="143" y="43" width="14" height="14" rx="2" class="svg-fill-accent" opacity="0.3"/>
+                    <svg class="service-illustration" viewBox="0 0 300 300" fill="none">
+                        <!-- Workflow circulaire moderne -->
                         
-                        <circle cx="230" cy="85" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <path d="M225 85 L230 80 L235 85 L230 90 Z" class="svg-fill-accent"/>
+                        <!-- Cercles de fond -->
+                        <circle cx="150" cy="150" r="120" class="svg-stroke" stroke-width="2" opacity="0.15"/>
+                        <circle cx="150" cy="150" r="90" class="svg-stroke" stroke-width="1.5" opacity="0.25"/>
+                        <circle cx="150" cy="150" r="45" class="svg-fill-accent" opacity="0.1"/>
                         
-                        <circle cx="230" cy="195" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <rect x="223" y="188" width="14" height="14" rx="7" class="svg-stroke-accent" stroke-width="1.5"/>
+                        <!-- Centre: Logo/Symbole Support -->
+                        <circle cx="150" cy="150" r="35" class="svg-stroke" stroke-width="2"/>
+                        <circle cx="150" cy="150" r="28" class="svg-stroke-accent" stroke-width="2"/>
+                        <path d="M150 140 L150 145 L155 150" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
                         
-                        <circle cx="150" cy="230" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <path d="M145 227 L148 233 L155 225" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Nœud 1: Accompagnement (Haut) -->
+                        <g transform="translate(150, 30)">
+                            <circle r="20" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="18" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Horloge -->
+                            <circle r="8" class="svg-stroke-accent" stroke-width="1.5"/>
+                            <path d="M0 -6 L0 -2 M0 2 L0 6 M6 0 L2 0 M-2 0 L-6 0" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M0 0 L0 -4 L3 -1" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
                         
-                        <circle cx="70" cy="195" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <line x1="65" y1="195" x2="75" y2="195" class="svg-stroke-accent" stroke-width="2"/>
-                        <line x1="70" y1="190" x2="70" y2="200" class="svg-stroke-accent" stroke-width="2"/>
+                        <!-- Nœud 2: Aide ECU (Droite Haut) -->
+                        <g transform="translate(240, 75)">
+                            <circle r="20" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="18" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Checklist -->
+                            <rect x="-8" y="-8" width="16" height="16" rx="2" class="svg-stroke-accent" stroke-width="1.5"/>
+                            <path d="M-4 -2 L-1 1 L4 -4" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
                         
-                        <circle cx="70" cy="85" r="15" class="svg-stroke" stroke-width="1.5"/>
-                        <path d="M65 82 L70 92 L75 82" class="svg-stroke-accent" stroke-width="1.5" fill="none"/>
+                        <!-- Nœud 3: Support après (Droite Bas) -->
+                        <g transform="translate(240, 225)">
+                            <circle r="20" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="18" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Validation -->
+                            <circle r="8" class="svg-stroke-accent" stroke-width="1.5"/>
+                            <path d="M-3 0 L0 3 L5 -2" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
                         
-                        <!-- Pulse rings -->
-                        <circle cx="150" cy="140" r="50" class="svg-stroke-accent" stroke-width="1" opacity="0.3"/>
-                        <circle cx="150" cy="140" r="60" class="svg-stroke-accent" stroke-width="0.5" opacity="0.15"/>
+                        <!-- Nœud 4: Réactivité (Gauche) -->
+                        <g transform="translate(60, 150)">
+                            <circle r="20" class="svg-stroke" stroke-width="2" fill="#0a0a0a"/>
+                            <circle r="18" class="svg-fill-accent" opacity="0.15"/>
+                            <!-- Icône Bolt/Lightning -->
+                            <path d="M0 -8 L-3 -1 L0 -1 L-2 5 L5 -2 L2 -2 L4 -8 Z" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </g>
+                        
+                        <!-- Lignes de connexion (flow) -->
+                        <path d="M150 72 Q 150 100 150 115" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M220 95 Q 200 120 185 135" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M220 205 Q 200 180 185 165" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        <path d="M100 150 Q 120 150 115 150" class="svg-stroke-accent" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 3"/>
+                        
+                        <!-- Particules/Dots en mouvement -->
+                        <circle cx="150" cy="90" r="2" class="svg-fill-accent" opacity="0.8"/>
+                        <circle cx="210" cy="115" r="2" class="svg-fill-accent" opacity="0.6"/>
+                        <circle cx="210" cy="185" r="2" class="svg-fill-accent" opacity="0.7"/>
+                        <circle cx="100" cy="150" r="2" class="svg-fill-accent" opacity="0.8"/>
                     </svg>
                 </div>
             </div>
