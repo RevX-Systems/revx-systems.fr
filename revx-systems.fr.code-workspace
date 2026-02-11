@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../Desktop/Site_RevX_V2.0/css"
+		},
+		{
+			"path": "../../../Desktop/Site_RevX_V2.0/js"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "revx-systems.fr",
+		"liveServer.settings.port": 5501
+	}
+}
