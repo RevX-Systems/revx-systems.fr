@@ -1,5 +1,5 @@
 {
-  "version": "0.6.7",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/V0.6.7/RevX_Update.zip",
-  "changelog": "Version TEST"
+  "version": "0.7.0",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/V0.7.0/RevX_Update.zip",
+  "changelog": "Version Beta 0.7.0\n- Added support for Windows 11\n- Improved performance and stability\n- Fixed various bugs and issues\n- Updated user interface for better experience"
 }
