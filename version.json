@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/V1.0.0/RevX_Update.zip",
-  "changelog": "Version TEST"
+  "version": "0.7.1",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.1/RevX_Update.zip",
+  "changelog": "- V0.7.1 Bug fixes window close + Uforce600\n- V0.7.0\n- V0.6.8_Autopdate 100%\n- Autoupdate 90%\n- Autoupdate 50%\n- V0.6.5 - Bug fixed\n- Select file 95% OK - UI deactivate OK\n- Hint mod\n- Grise les boutons ECU et affiche hint si aucune prestation s├⌐lectionn├⌐e\n- V0.6.4 Bug+Ghost+Log"
 }
