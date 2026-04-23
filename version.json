@@ -1,5 +1,6 @@
 {
-  "version": "0.7.1",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.1/RevX_Update.zip",
-  "changelog": "- V0.7.1 Bug fixes window close + Uforce600\n- V0.7.0\n- V0.6.8_Autopdate 100%\n- Autoupdate 90%\n- Autoupdate 50%\n- V0.6.5 - Bug fixed\n- Select file 95% OK - UI deactivate OK\n- Hint mod\n- Grise les boutons ECU et affiche hint si aucune prestation s├⌐lectionn├⌐e\n- V0.6.4 Bug+Ghost+Log"
+  "version": "0.7.3",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.3/RevX_Update.zip",
+  "hash": "460c75cd593f4b3c8a0f04114845d58ef9dd1417f38679217d86124dbdb84737",
+  "changelog": "- V0.7.3 Audit complete: all critical and important fixes applied\n- Deploy + write bug OK\n- Security: SHA256 hash verification + URL validation on auto-update\n- Refactor 2nd 50%\n- Clean: remove dead code, fix config, centralize constants, clean App.xaml\n- V0.7.2 Refactor + 20%\n- V0.7.2 Refactor done + bug fix button opacity\n- V0.7.2 Refactor 60%\n- V0.7.2 Refactor 30%\n- V0.7.2 J2534 Error popup OK +Bug fixes"
 }
