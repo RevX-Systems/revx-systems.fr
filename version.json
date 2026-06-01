@@ -1,6 +1,6 @@
 {
-  "version": "0.7.5",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.5/RevX_Update.zip",
-  "hash": "ed5f39cab2b5e13a3b44a9ee3c51c96b37dc69ebf2d92df0d4ff0198cf041c5d",
-  "changelog": "- refactor(automation): replace Settings window polling with WinEvent hook + synchronous SW_HIDE\n- fix(window): retire SWP_ASYNCWINDOWPOS des moves off-screen (Settings, Select ECU, Button)\n- V0.7.5 Suppr recovery, Est time, Ctrl+R\n- V0.7.5 UI clean - Pinout - Bugfixes\n- Bitbox occurences + ECU refs mod\n- Add_Pinout button + bug fixes\n- Fix: suppression boucle r├⌐cursion watchdog OnBitBoxStartupTimeout pendant update (H3)\n- Fix: branding message popup d├⌐marrage ΓÇö BitBox ΓåÆ RevX Core\n- Fix: suppression du faux positif \"BitBox n'a pas pu d├⌐marrer\" pendant update interne\n- Bitbox delete + minor changes\n- Bitbox delete , ajustements launcher, ECU window et localisation"
+  "version": "0.7.6",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.6/RevX_Update.zip",
+  "hash": "1a5b5b3d5feadcaf92d1f559e484d9a3cce9ba18b9e56af86d64213e1112389d",
+  "changelog": "- V0.7.6 CSV / Scroll / Settings beta /Pinout\n- fix(window): retire SWP_ASYNCWINDOWPOS des moves off-screen (Settings, Select ECU, Button)\n- V0.7.5 Suppr recovery, Est time, Ctrl+R\n- V0.7.5 UI clean - Pinout - Bugfixes\n- Bitbox occurences + ECU refs mod\n- Add_Pinout button + bug fixes\n- Fix: suppression boucle r├⌐cursion watchdog OnBitBoxStartupTimeout pendant update (H3)\n- Fix: branding message popup d├⌐marrage ΓÇö BitBox ΓåÆ RevX Core\n- Fix: suppression du faux positif \"BitBox n'a pas pu d├⌐marrer\" pendant update interne\n- Bitbox delete + minor changes\n- Bitbox delete , ajustements launcher, ECU window et localisation"
 }
