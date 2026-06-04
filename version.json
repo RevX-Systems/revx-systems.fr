@@ -1,6 +1,6 @@
 {
-  "version": "0.7.7",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.7/RevX_Update.zip",
-  "hash": "95a7b29a374680c8b98067111c550eb4ddf4239c082323faf493ec211a2c0cec",
-  "changelog": "- fix(settings): filtre la detection de la fenetre Settings par PID BitBox"
+  "version": "0.7.8",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.8/RevX_Update.zip",
+  "hash": "bae662ecff0e449e9f2b7cfc8801a39ecb520ada575344aa131ed5cc2f186adf",
+  "changelog": "- V0.7.8 Power mod / sch├⌐mas 195/407 Ranger500 + Misc\n- fix(power): restaure la veille ├á la fermeture de la fen├¬tre ECU\n- feat(power): emp├¬che veille + ├⌐cran pendant les op├⌐rations ECU"
 }
