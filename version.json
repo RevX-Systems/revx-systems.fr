@@ -1,6 +1,6 @@
 {
-  "version": "0.7.8",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.8/RevX_Update.zip",
-  "hash": "bae662ecff0e449e9f2b7cfc8801a39ecb520ada575344aa131ed5cc2f186adf",
-  "changelog": "- V0.7.8 Power mod / sch├⌐mas 195/407 Ranger500 + Misc\n- fix(power): restaure la veille ├á la fermeture de la fen├¬tre ECU\n- feat(power): emp├¬che veille + ├⌐cran pendant les op├⌐rations ECU"
+  "version": "0.7.9",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.9/RevX_Update.zip",
+  "hash": "ebb4a3f0370e89b9284a43fd3981efa0250477d9cf74a2fa51a71d91400a332a",
+  "changelog": "- fix(ui): reset comment on vehicle change + highlight dor├⌐ au 1er clic Autre\n- fix(ui): flash comment field on dong + require explicit re-click to activate Autre demande\n- fix(ui): decouple prestation mode selection from comment validation\n- V0.7.9 + FID 572\n- chore(suivi): Todo_REVX_ #8 fait + REVX_ROADMAP.md\n- feat(ui): remplace bouton Mode avanc├⌐ par Aide + acc├¿s service Ctrl+clic\n- feat(ui): fen├¬tre guide RevXGuideWindow (3 ├⌐tapes statiques)\n- feat(ui): fen├¬tre PIN ServiceCodeDialog\n- feat(service): module ServiceCode + tests + g├⌐n├⌐rateur PS\n- Settings: capture WinEvent + validation ComboBox avant acceptation\n- Updater: lancement depuis copie %TEMP% (droits Program Files)\n- Updater: garde args vides + pending tra├ºable + zip conserv├⌐ sur ├⌐chec\n- Updater: mise ├á jour mutuelle launcher/updater (bootstrap paradox)"
 }
