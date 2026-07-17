@@ -1,6 +1,6 @@
 {
-  "version": "0.7.9",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.9/RevX_Update.zip",
-  "hash": "ebb4a3f0370e89b9284a43fd3981efa0250477d9cf74a2fa51a71d91400a332a",
-  "changelog": "- fix(ui): reset comment on vehicle change + highlight dor├⌐ au 1er clic Autre\n- fix(ui): flash comment field on dong + require explicit re-click to activate Autre demande\n- fix(ui): decouple prestation mode selection from comment validation\n- V0.7.9 + FID 572\n- chore(suivi): Todo_REVX_ #8 fait + REVX_ROADMAP.md\n- feat(ui): remplace bouton Mode avanc├⌐ par Aide + acc├¿s service Ctrl+clic\n- feat(ui): fen├¬tre guide RevXGuideWindow (3 ├⌐tapes statiques)\n- feat(ui): fen├¬tre PIN ServiceCodeDialog\n- feat(service): module ServiceCode + tests + g├⌐n├⌐rateur PS\n- Settings: capture WinEvent + validation ComboBox avant acceptation\n- Updater: lancement depuis copie %TEMP% (droits Program Files)\n- Updater: garde args vides + pending tra├ºable + zip conserv├⌐ sur ├⌐chec\n- Updater: mise ├á jour mutuelle launcher/updater (bootstrap paradox)"
+  "version": "0.7.10",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.7.10/RevX_Update.zip",
+  "hash": "e6bf2cf60023ab9c1a2f8446fdfceade3f76fbdd98ea0f268cba00f35de51643",
+  "changelog": "- fix(ui): banni├¿re prestation pilot├⌐e par _prestationSelected seul\n- fix(ui): d├⌐rive la banni├¿re prestation de _prestationSelected seul\n- fix(services): align notification DTO with real API contract\n- feat(ui): add server status bar to MainWindow with polling wiring\n- feat(services): add ServerStatusService with HTTPS polling\n- feat(config): add Api section for server status polling\n- fix(ui): bouton fermeture RevXGuideWindow ΓÇö remplace '┬╖┬╖┬╖' par croix Γ£ò\n- fix(ui): redesign RevXGuideWindow ΓÇö layout 3 ├⌐tapes avec tableau passif"
 }
