@@ -1,6 +1,6 @@
 {
-  "version": "0.8.1",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.1/RevX_Update.zip",
-  "hash": "fe961c6ac101413f591409fc7cc9c7a8da1a92631097c64b9976107f7e445b15",
-  "changelog": "- chore: remove [FocusDiag] telemetry and dead focus repair\n- V.0.8.1\n- chore(diag): identify oscillating window\n- docs(claude): work directly on master, never branch\n- chore(diag): foreground and keyboard focus telemetry\n- fix(ui): initial keyboard focus on EcuReferencesWindow"
+  "version": "0.8.2",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.2/RevX_Update.zip",
+  "hash": "9665993b65c4ffb48355ad58b6f736962a60d3adffae8283eb89d242d4db9aaf",
+  "changelog": "- fix(ui): tiret simple dans titres/libell├⌐s, largeur badge statut serveur\n- fix(server-status): tiret simple dans les libell├⌐s badge, texte erreur adouci"
 }
