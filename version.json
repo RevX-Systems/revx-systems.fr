@@ -1,6 +1,6 @@
 {
-  "version": "0.8.2",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.2/RevX_Update.zip",
-  "hash": "9665993b65c4ffb48355ad58b6f736962a60d3adffae8283eb89d242d4db9aaf",
-  "changelog": "- fix(ui): tiret simple dans titres/libell├⌐s, largeur badge statut serveur\n- fix(server-status): tiret simple dans les libell├⌐s badge, texte erreur adouci"
+  "version": "0.8.3",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.3/RevX_Update.zip",
+  "hash": "d283aaf6a8466d147e2560b31517bd280ea185e6284b37325478d2653462394f",
+  "changelog": "- V0.8.3 Bug fixes / Goes550 / MT05.X SCH"
 }
