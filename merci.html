@@ -1,204 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Merci pour votre demande - REVX Systems">
-    <title>Merci - REVX Systems</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/theme-modern.css" id="theme-modern">
-    <link rel="stylesheet" href="css/theme-v1.css" id="theme-v1" disabled>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#08141a">
+  <title>Demande transmise — REVX Systems</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .thanks-page { min-height: 100vh; background: #08151b; color: #fff; display: flex; flex-direction: column; }
+    .thanks-header { border-bottom: 1px solid rgba(255,255,255,.10); padding: 24px clamp(24px,6vw,80px); }
+    .thanks-header img { display: block; width: 160px; height: auto; }
+    .thanks-main { flex: 1; display: grid; place-items: center; padding: 80px 24px; }
+    .thanks-panel { width: min(100%, 690px); }
+    .thanks-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .16em; color: #9cadb3; margin-bottom: 24px; }
+    .thanks-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 2px; background: var(--green); vertical-align: middle; margin-right: 14px; }
+    .thanks-title { font-size: clamp(36px, 6vw, 66px); line-height: 1.06; font-weight: 750; letter-spacing: -.035em; margin: 0 0 22px; }
+    .thanks-title span { color: var(--green); }
+    .thanks-copy { max-width: 52ch; color: #c8d5d8; line-height: 1.7; margin: 0 0 42px; }
+    .thanks-links { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
+    .thanks-links a { display: inline-block; text-decoration: none; font-weight: 650; }
+    .thanks-home { background: var(--green); color: #08151b; padding: 15px 24px; }
+    .thanks-back { color: #fff; border: 1px solid rgba(255,255,255,.35); padding: 14px 23px; }
+    .thanks-footer { color: #8799a0; font-size: 12px; text-align: center; padding: 28px; border-top: 1px solid rgba(255,255,255,.08); }
+    @media (prefers-reduced-motion: no-preference) { .thanks-links a { transition: background .2s ease, transform .2s ease; } .thanks-links a:hover { transform: translateY(-2px); } }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-content">
-            <a href="index.html" class="logo">
-                <img src="assets/logo_revx.png" alt="REVX Systems">
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Accueil</a></li>
-                    <li><a href="prestations.html" class="nav-link">Prestations</a></li>
-                    <li><a href="diagnostic.html" class="nav-link">Diagnostic</a></li>
-                    <li><a href="solution.html" class="nav-link">Solution RevX</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
-            <li><a href="prestations.html" class="mobile-nav-link">Prestations</a></li>
-            <li><a href="diagnostic.html" class="mobile-nav-link">Diagnostic</a></li>
-            <li><a href="solution.html" class="mobile-nav-link">Solution RevX</a></li>
-            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-        </ul>
+<body class="thanks-page">
+  <header class="thanks-header"><a href="index.html" aria-label="Retour à l'accueil REVX Systems"><img src="assets/revx-logo-original.png" alt="REVX Systems"></a></header>
+  <main class="thanks-main">
+    <div class="thanks-panel">
+      <p class="thanks-eyebrow">Contact professionnel</p>
+      <h1 class="thanks-title">Demande transmise<span>.</span></h1>
+      <p class="thanks-copy">Merci pour votre message. Votre demande a été envoyée à REVX Systems. Nous reviendrons vers vous après étude de votre besoin.</p>
+      <div class="thanks-links"><a class="thanks-home" href="index.html">Retour à l’accueil →</a><a class="thanks-back" href="contact.html">Autre demande</a></div>
     </div>
-
-    <!-- Thank You Section -->
-    <section class="section thank-you-section">
-        <div class="container">
-            <div class="thank-you-content">
-                <div class="thank-you-icon">
-                    <svg viewBox="0 0 120 120" fill="none">
-                        <circle cx="60" cy="60" r="54" class="svg-stroke" stroke-width="3" opacity="0.2"/>
-                        <circle cx="60" cy="60" r="45" class="svg-stroke-accent" stroke-width="3"/>
-                        <path d="M35 60 L50 75 L85 40" class="svg-stroke-accent" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                        
-                        <!-- Particules de succès -->
-                        <circle cx="25" cy="30" r="3" class="svg-fill-accent" opacity="0.6"/>
-                        <circle cx="95" cy="35" r="2" class="svg-fill-accent" opacity="0.4"/>
-                        <circle cx="90" cy="85" r="3" class="svg-fill-accent" opacity="0.5"/>
-                        <circle cx="20" cy="85" r="2" class="svg-fill-accent" opacity="0.7"/>
-                        <circle cx="105" cy="60" r="2.5" class="svg-fill-accent" opacity="0.6"/>
-                        <circle cx="15" cy="55" r="2" class="svg-fill-accent" opacity="0.5"/>
-                    </svg>
-                </div>
-                
-                <h1 class="thank-you-title">Demande transmise</h1>
-                <p class="thank-you-lead">
-                    Votre demande a bien été reçue et sera étudiée dans les plus brefs délais.
-                </p>
-                
-                <div class="thank-you-details">
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <rect x="3" y="5" width="18" height="14" rx="2" class="svg-stroke" stroke-width="1.5"/>
-                                <path d="M3 7 L12 13 L21 7" class="svg-stroke-accent" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <div class="detail-text">
-                            <h3>Confirmation envoyée</h3>
-                            <p>Un email de confirmation a été envoyé à l'adresse que vous avez indiquée.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="9" class="svg-stroke" stroke-width="1.5"/>
-                                <path d="M12 7 L12 12 L16 14" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="detail-text">
-                            <h3>Délai de réponse</h3>
-                            <p>Nous reviendrons vers vous sous 48 à 72 heures si votre projet est compatible avec notre activité.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M9 11l3 3L22 4" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" class="svg-stroke" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="detail-text">
-                            <h3>Évaluation qualifiée</h3>
-                            <p>Chaque demande est analysée pour garantir un accompagnement adapté et structuré.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="thank-you-actions">
-                    <a href="index.html" class="btn btn-primary">
-                        <svg viewBox="0 0 24 24" fill="none" class="btn-icon-left">
-                            <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Retour à l'accueil</span>
-                    </a>
-                    <a href="solution.html" class="btn btn-secondary">
-                        <span>En savoir plus sur notre solution</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Additional Info Section -->
-    <section class="section info-section">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-card-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="12" width="32" height="28" rx="4" class="svg-stroke" stroke-width="2"/>
-                            <path d="M8 20 L24 32 L40 20" class="svg-stroke-accent" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-card-title">Vérifiez vos emails</h3>
-                    <p class="info-card-text">
-                        Un email de confirmation contenant un récapitulatif de votre demande vous a été envoyé. 
-                        Pensez à vérifier vos spams si vous ne le recevez pas.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-card-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="16" class="svg-stroke" stroke-width="2"/>
-                            <path d="M16 24 L22 30 L32 18" class="svg-stroke-accent" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-card-title">Processus structuré</h3>
-                    <p class="info-card-text">
-                        Notre méthode privilégie la qualité à la quantité. Chaque projet est évalué 
-                        pour garantir une intervention maîtrisée.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-card-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <rect x="10" y="14" width="28" height="24" rx="4" class="svg-stroke" stroke-width="2"/>
-                            <path d="M18 22 L22 26 L30 18" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-card-title">Transparence</h3>
-                    <p class="info-card-text">
-                        Vous serez informé rapidement de la suite donnée à votre demande, 
-                        qu'elle soit positive ou négative.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo_revx.png" alt="REVX Systems" class="footer-logo">
-                    <p class="footer-tagline">Expertise ECU & solutions techniques</p>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Accueil</a>
-                    <a href="prestations.html">Prestations</a>
-                    <a href="diagnostic.html">Diagnostic</a>
-                    <a href="solution.html">Solution RevX</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <p class="footer-copy">&copy; 2026 REVX Systems. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+  </main>
+  <footer class="thanks-footer">© 2026 REVX Systems · Professionnels uniquement</footer>
 </body>
 </html>

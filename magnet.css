@@ -1,0 +1,188 @@
+/* REVX V5 — trois chapitres en panneaux flottants, snap doux, navigation principale conservée */
+:root { --magnet-ease:cubic-bezier(.21,.76,.25,1); }
+@media (min-width: 761px) and (prefers-reduced-motion: no-preference) {
+  /* Snap proximity: n'interrompt pas le défilement ordinaire en dehors des chapitres. */
+  /* Le centre du snap reste à 51% de la fenêtre, comme dans magnet.js. */
+  html { scroll-snap-type: y proximity; scroll-padding-block:2vh 0; }
+  .chapter-stage .magnetic-panel { scroll-snap-align:center; scroll-snap-stop:normal; scroll-margin-block:0; }
+}
+.chapter-stage {
+  position:relative;
+  isolation:isolate;
+  padding:clamp(65px,10vh,120px) 0 clamp(100px,14vh,170px);
+  overflow:clip;
+  background:
+    radial-gradient(ellipse 80% 42% at 50% 38%,rgba(50,78,85,.35),transparent 77%),
+    radial-gradient(ellipse 65% 40% at 38% 72%,rgba(25,57,63,.3),transparent 78%),
+    #08141b;
+}
+.chapter-stage:before {
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.47;
+  background:repeating-linear-gradient(0deg,transparent 0px,transparent 100px,rgba(255,255,255,.015) 101px,transparent 102px);
+}
+.chapter-stage-intro,.chapter-stage-end {
+  display:flex;align-items:center;justify-content:center;gap:15px;
+  font-size:11px;font-weight:700;letter-spacing:.18em;
+  color:#9db2b9;position:relative;z-index:2;
+}
+.chapter-stage-intro{margin:0 auto clamp(55px,9vh,95px)}
+.chapter-stage-end{margin:clamp(58px,9vh,110px) auto 0;color:#829ca5}
+.chapter-stage-intro .bar,.chapter-stage-end .bar{display:block;width:32px;height:2px;background:var(--green)}
+.chapter-stage-intro-arrow{font-size:20px;color:var(--green);font-weight:400;animation:magnet-arrow 2.4s ease-in-out infinite}
+@keyframes magnet-arrow{0%,100%{transform:translateY(-3px)}50%{transform:translateY(6px)}}
+.chapter-stage-stack{position:relative;z-index:1}
+.offers-chapters {display:contents}
+/* Normal document scroll, framed panels with enough breathing room to see their neighbors. */
+.chapter-stage .magnetic-panel{
+  --magnet-scale:.88;
+  --magnet-dim:.60;
+  --magnet-blur:1.5px;
+  position:relative;
+  display:block;
+  width:min(1350px,calc(100% - clamp(52px,11vw,180px)));
+  max-width:none;
+  height:clamp(500px,68svh,720px);
+  min-height:0;
+  margin:0 auto clamp(44px,6vh,65px);
+  border-radius:14px;
+  border:1px solid rgba(207,232,238,.13);
+  overflow:hidden;
+  isolation:isolate;
+  color:#fff;
+  transform:translateZ(0) translateY(var(--magnet-shift,0px)) scale(var(--magnet-scale));
+  filter:brightness(var(--magnet-dim)) blur(var(--magnet-blur));
+  transform-origin:center center;
+  opacity:1;
+  box-shadow:0 22px 64px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.025);
+  transition:transform .56s var(--magnet-ease),filter .56s var(--magnet-ease),
+             border-color .56s var(--magnet-ease),box-shadow .56s var(--magnet-ease);
+  will-change:transform,filter;
+}
+.chapter-stage-stack > .magnetic-panel:last-child{margin-bottom:0}
+.chapter-stage .magnetic-panel.is-active {
+  z-index:3;
+  border-color:rgba(224,245,245,.38);
+  box-shadow:0 32px 100px rgba(0,0,0,.64),0 0 0 1px rgba(125,222,80,.18),inset 0 1px 0 rgba(255,255,255,.06);
+}
+/* Prestations: image expressive sur la droite, texte sur sombre. */
+.chapter-stage .offer-services{background:#09161d;color:white}
+.chapter-stage .offer-services-image{
+  position:absolute;inset:0 0 0 33%;opacity:1;
+  background-image:linear-gradient(90deg,rgba(9,22,29,.84) 0%,rgba(9,22,29,.16) 65%,transparent),url('assets/ssv-service.webp');
+  background-size:cover,cover;
+  background-position:center,center 44%;
+}
+.chapter-stage .offer-services:before {
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,#09161d 0%,rgba(9,22,29,.97) 30%,rgba(9,22,29,.65) 54%,rgba(9,22,29,0) 90%);
+}
+/* Solution: fond clair avec visuel de la station de travail sur la droite. */
+.chapter-stage .offer-solution {background:#eaf0f1;color:#08171d}
+.chapter-stage .offer-solution-image {
+  position:absolute;inset:0 0 0 42%;opacity:1;
+  background:url('assets/solution-photo.webp') 55% center / cover no-repeat;
+}
+.chapter-stage .offer-solution:before {
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,#eff4f5 0%,rgba(239,244,245,.99) 26%,rgba(239,244,245,.72) 47%,rgba(239,244,245,.03) 87%);
+}
+/* Typographie plus légère que la V4; chaque carte doit respirer. */
+.chapter-stage .offer-content {
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  width:65%;max-width:860px;height:100%;min-height:0;
+  padding:clamp(42px,7vh,80px) clamp(35px,6.5vw,105px);
+}
+.chapter-stage .offer h2 {
+  font-size:clamp(38px,4vw,61px);font-weight:600;
+  text-transform:none;line-height:1.07;letter-spacing:-.045em;
+  max-width:640px;margin:18px 0 22px;
+}
+.chapter-stage .offer p {
+  max-width:485px;font-size:clamp(15px,1.18vw,18px);line-height:1.57;margin-bottom:20px;
+}
+.chapter-kicker{font-size:11px;font-weight:700;letter-spacing:.19em;color:var(--green);margin-bottom:22px}
+.offer-solution .chapter-kicker{color:#3b8e24}
+.chapter-highlights {display:flex;flex-wrap:wrap;gap:8px;max-width:570px;margin-bottom:28px}
+.chapter-highlights span {font-size:10px;font-weight:750;letter-spacing:.08em;padding:8px 10px;border:1px solid rgba(255,255,255,.45);color:#ecf4f5}
+.offer-solution .chapter-highlights span{color:#28444f;border-color:#b3c3c9;background:rgba(255,255,255,.38)}
+.chapter-stage .offer-content .btn {margin-top:0;min-height:48px;padding:0 22px}
+/* Fonctionnement : même carte flottante, processus lisible avec bandeau photographique léger. */
+.chapter-stage .workflow.magnetic-panel {
+  display:flex;align-items:center;
+  height:auto;min-height:clamp(470px,60svh,620px);
+  background:#e7eef0;
+  color:#08181e;
+  padding:clamp(30px,5vh,60px) 0;
+}
+.chapter-stage .workflow-inner{width:100%;max-width:none}
+.chapter-stage .workflow-head{margin-bottom:clamp(22px,3.8vh,37px);align-items:end;gap:35px}
+.chapter-stage .workflow-head h2{
+  text-transform:none;font-weight:610;letter-spacing:-.045em;
+  font-size:clamp(29px,3vw,46px);max-width:740px;line-height:1.14;
+}
+.chapter-stage .workflow-head>p{font-size:clamp(13px,1.06vw,16px);max-width:355px;line-height:1.55;color:#304a56}
+.workflow .chapter-kicker{color:#55747e;margin:8px 0 0}
+.chapter-stage .process-track{display:grid;grid-template-columns:minmax(0,1fr) 31px minmax(0,1.03fr) 31px minmax(0,1fr);gap:10px;align-items:center}
+.chapter-stage .process-step {min-height:195px;gap:13px;padding:19px 15px}
+.chapter-stage .process-center{background:#101f27;box-shadow:0 18px 44px rgba(8,20,26,.22);padding:25px 18px}
+.chapter-stage .process-step h3{font-size:13px;margin-bottom:10px}
+.chapter-stage .process-step p{font-size:13px;line-height:1.58}
+.chapter-stage .process-left p,.chapter-stage .process-right p{color:#304a56}
+.chapter-stage .process-step .process-number{font-size:62px;top:12px;left:10px}
+.chapter-stage .process-left .process-number,.chapter-stage .process-right .process-number{color:rgba(62,96,111,.23)}
+.chapter-stage .process-left::before,.chapter-stage .process-right::before{opacity:.62;background-size:cover}
+.chapter-stage .workflow-footnote{margin-top:22px;font-size:12px;line-height:1.55;color:#526b76}
+/* Visually focus neighbors only after JS loads; without JS the complete site remains readable. */
+html:not(.magnet-ready) .chapter-stage .magnetic-panel {
+  --magnet-scale:1;--magnet-dim:1;--magnet-blur:0px;
+}
+/* Medium desktop / tablets: preserve process legibility and breathing room */
+@media(max-width:1120px){
+  .chapter-stage .magnetic-panel{width:calc(100% - 65px);height:clamp(495px,69svh,670px)}
+  .chapter-stage .offer-content{width:73%;padding-inline:5.1vw}
+  .chapter-stage .offer h2{font-size:clamp(35px,4.3vw,54px)}
+  .chapter-stage .workflow-head h2{font-size:clamp(27px,3.3vw,38px)}
+  .chapter-stage .process-track{grid-template-columns:minmax(0,1fr) 17px minmax(0,1fr) 17px minmax(0,1fr);gap:6px}
+  .chapter-stage .process-step{padding:17px 12px;gap:10px;min-height:200px}
+  .chapter-stage .process-step p{font-size:12px}
+}
+/* Touch/mobile: no forced snapping, no blur, ordinary vertical panels. */
+@media(max-width:760px){
+  .chapter-stage{padding:60px 0 75px}
+  .chapter-stage-intro{margin-bottom:28px;font-size:9px}
+  .chapter-stage-end{margin-top:40px;font-size:9px;text-align:center}
+  .chapter-stage .magnetic-panel{
+    width:calc(100% - 28px);height:auto;min-height:510px;
+    margin-bottom:22px;border-radius:9px;
+    --magnet-scale:1!important;--magnet-dim:1!important;--magnet-blur:0px!important;
+    transform:none!important;filter:none!important;will-change:auto;
+  }
+  /* Conserver exactement les espacements du flux mobile existant. */
+  .chapter-stage .magnetic-panel:last-child{margin-bottom:0}
+  .chapter-stage .offer-content {min-height:510px;width:100%;padding:50px 28px;justify-content:center}
+  .chapter-stage .offer h2 {font-size:clamp(34px,8vw,48px);max-width:370px}
+  .chapter-stage .offer p{font-size:15px;max-width:335px}
+  .chapter-stage .offer-services-image{inset:0;background-position:center,65% center;opacity:.8}
+  .chapter-stage .offer-services:before{background:linear-gradient(90deg,#09161d 0%,rgba(9,22,29,.93) 48%,rgba(9,22,29,.58) 100%)}
+  .chapter-stage .offer-solution-image{inset:0 0 0 22%;opacity:.66}
+  .chapter-stage .offer-solution:before{background:linear-gradient(90deg,#eff4f5 0%,rgba(239,244,245,.94) 54%,rgba(239,244,245,.57) 100%)}
+  .chapter-kicker{font-size:10px;letter-spacing:.11em;margin-bottom:18px}
+  .chapter-highlights{gap:6px;margin-bottom:25px}
+  .chapter-highlights span{font-size:9px;padding:7px 8px}
+  .chapter-stage .workflow.magnetic-panel{display:block;padding:40px 0 34px;min-height:0}
+  .chapter-stage .workflow-head{display:block;margin-bottom:26px}
+  .chapter-stage .workflow-head h2{font-size:clamp(27px,7vw,37px)}
+  .chapter-stage .workflow-head>p{font-size:13px;margin-top:14px}
+  .chapter-stage .process-track{display:flex;flex-direction:column;gap:9px}
+  .chapter-stage .process-track>.arrow{transform:rotate(90deg);align-self:center}
+  .chapter-stage .process-step,.chapter-stage .process-center{width:100%;min-height:138px;padding:19px 18px;gap:18px}
+  .chapter-stage .process-step h3{font-size:13px}
+  .chapter-stage .process-step p{font-size:13px;max-width:255px}
+  .chapter-stage .process-step .process-number{font-size:52px}
+  .chapter-stage .workflow-footnote{margin-top:18px;line-height:1.5}
+}
+@media(prefers-reduced-motion:reduce){
+  .chapter-stage .magnetic-panel{transform:none!important;filter:none!important;transition:none!important;will-change:auto}
+  .chapter-stage-intro-arrow{animation:none!important}
+}

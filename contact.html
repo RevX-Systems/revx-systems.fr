@@ -1,290 +1,122 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contactez REVX Systems - Expertise ECU et support technique pour véhicules de loisirs. Demande de projet qualifiée.">
-    <title>Contact - REVX Systems</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/theme-modern.css" id="theme-modern">
-    <link rel="stylesheet" href="css/theme-v1.css" id="theme-v1" disabled>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#08141a" name="theme-color"/>
+<meta content="Contactez REVX Systems pour une prestation de reprogrammation ECU ou la solution de programmation à distance pour votre atelier Powersports." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Contact — REVX Systems" property="og:title"/>
+<title>Contact — REVX Systems | Expertise ECU Powersports</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="contact.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+<script defer="" src="contact.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-content">
-            <a href="index.html" class="logo">
-                <img src="assets/logo_revx.png" alt="REVX Systems">
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Accueil</a></li>
-                    <li><a href="prestations.html" class="nav-link">Prestations</a></li>
-                    <li><a href="diagnostic.html" class="nav-link">Diagnostic</a></li>
-                    <li><a href="solution.html" class="nav-link">Solution RevX</a></li>
-                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <ul class="mobile-nav-list">
-            <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
-            <li><a href="prestations.html" class="mobile-nav-link">Prestations</a></li>
-            <li><a href="diagnostic.html" class="mobile-nav-link">Diagnostic</a></li>
-            <li><a href="solution.html" class="mobile-nav-link">Solution RevX</a></li>
-            <li><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
-        </ul>
-    </div>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Contact</h1>
-            <p class="page-subtitle">Soumettre une demande de projet</p>
-        </div>
-    </section>
-
-    <!-- ================================ -->
-    <!-- SECTION 1 : FORMULAIRE EMAIL    -->
-    <!-- ================================ -->
-    <section class="section contact-form-section">
-        <div class="container">
-            <div class="contact-form-wrapper">
-                <div class="contact-form-intro">
-                    <div class="form-intro-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="12" y="16" width="40" height="32" rx="4" class="svg-stroke" stroke-width="2"/>
-                            <path d="M12 22 L32 38 L52 22" class="svg-stroke-accent" stroke-width="2" fill="none"/>
-                            <line x1="12" y1="44" x2="22" y2="34" class="svg-stroke" stroke-width="1.5"/>
-                            <line x1="52" y1="44" x2="42" y2="34" class="svg-stroke" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h2 class="section-title">Formulaire de contact</h2>
-                    <p class="form-intro-text">
-                        Chaque demande est étudiée avant validation afin de garantir un accompagnement adapté. 
-                        Merci de renseigner les informations ci-dessous pour que nous puissions évaluer 
-                        la faisabilité de votre projet.
-                    </p>
-                    <div class="form-intro-note">
-                        <svg viewBox="0 0 24 24" fill="none" class="intro-note-icon">
-                            <circle cx="12" cy="12" r="10" class="svg-stroke" stroke-width="1.5"/>
-                            <line x1="12" y1="8" x2="12" y2="13" class="svg-stroke-accent" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="12" cy="17" r="1.5" class="svg-fill-accent"/>
-                        </svg>
-                        <span>Nous reviendrons vers vous si le projet est compatible avec notre activité.</span>
-                    </div>
-                </div>
-
-                <form action="https://formsubmit.co/ajax/f67f0f01ff04d08fa01296d4150d11e1" method="POST" class="contact-form" id="contactForm">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="Nouvelle demande de projet - REVX Systems">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://revx-systems.fr/merci.html">
-                    <input type="text" name="_honey" style="display:none">
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nom / Société <span class="required">*</span></label>
-                            <input type="text" id="name" name="nom_societe" required class="form-input" placeholder="Votre nom ou raison sociale">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="brand_model" class="form-label">Marque / Modèle <span class="required">*</span></label>
-                        <input type="text" id="brand_model" name="marque_modele" required class="form-input" placeholder="Ex: CF Moto UForce 1000, Polaris RZR XP, etc.">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="request_type" class="form-label">Type de demande <span class="required">*</span></label>
-                        <select id="request_type" name="type_demande" required class="form-input form-select">
-                            <option value="">Sélectionner...</option>
-                            <option value="Reprogrammation ECU">Reprogrammation ECU</option>
-                            <option value="Diagnostic calculateur">Diagnostic calculateur</option>
-                            <option value="Support technique">Support technique</option>
-                            <option value="Demande d'information">Demande d'information</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" required class="form-input form-textarea" rows="5" placeholder="Décrivez votre projet ou votre demande..."></textarea>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span>Envoyer la demande</span>
-                            <svg viewBox="0 0 24 24" fill="none" class="btn-icon">
-                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Message de confirmation -->
-                <div class="form-success-message" id="successMessage" style="display: none;">
-                    <div class="success-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="32" r="28" class="svg-stroke-accent" stroke-width="2"/>
-                            <path d="M20 32 L28 40 L44 24" class="svg-stroke-accent" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="success-title">Demande transmise</h3>
-                    <p class="success-text">
-                        Votre demande a bien été transmise. Nous reviendrons vers vous si le projet 
-                        est compatible avec notre activité.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================ -->
-    <!-- SECTION 2 : CONTACT TÉLÉPHONIQUE -->
-    <!-- ================================ -->
-    <section class="section phone-section">
-        <div class="container">
-            <div class="phone-wrapper">
-                <div class="phone-content">
-                    <div class="phone-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <!-- Icône téléphone -->
-                            <rect x="16" y="12" width="32" height="48" rx="6" class="svg-stroke" stroke-width="2.5"/>
-                            <path d="M28 52 Q32 56 36 52" class="svg-stroke" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="20" y1="22" x2="44" y2="22" class="svg-stroke-accent" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="phone-text">
-                        <h3 class="phone-title">Échange téléphonique</h3>
-                        <p class="phone-description">
-                            Un échange téléphonique ou par messagerie peut être proposé lorsque le projet 
-                            le nécessite. Ce canal est réservé aux demandes qualifiées et aux suivis de projets en cours.
-                        </p>
-                        <p class="phone-schedule">
-                            <svg viewBox="0 0 20 20" fill="none" class="schedule-icon">
-                                <circle cx="10" cy="10" r="8" class="svg-stroke" stroke-width="1.5"/>
-                                <path d="M10 6 L10 10 L13 12" class="svg-stroke-accent" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                            <span>Messagerie disponible du lundi au samedi</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="phone-action">
-                    <a href="https://wa.me/33954207754" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="whatsapp-icon">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                        <span>Contacter via WhatsApp</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Note -->
-    <section class="section process-note">
-        <div class="container">
-            <div class="note-block">
-                <div class="note-icon">
-                    <svg viewBox="0 0 64 64" fill="none">
-                        <circle cx="32" cy="32" r="24" class="svg-stroke" stroke-width="2"/>
-                        <line x1="32" y1="20" x2="32" y2="36" class="svg-stroke-accent" stroke-width="3" stroke-linecap="round"/>
-                        <circle cx="32" cy="44" r="3" class="svg-fill-accent"/>
-                    </svg>
-                </div>
-                <div class="note-content">
-                    <h3 class="note-title">Notre approche</h3>
-                    <p class="note-text">
-                        REVX Systems n'est pas une hotline. Chaque demande est analysée afin de valider 
-                        la faisabilité technique et de définir un cadre d'intervention approprié. 
-                        Cette méthode garantit un accompagnement structuré et des interventions maîtrisées.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo_revx.png" alt="REVX Systems" class="footer-logo">
-                    <p class="footer-tagline">Expertise ECU & solutions techniques</p>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html">Accueil</a>
-                    <a href="prestations.html">Prestations</a>
-                    <a href="diagnostic.html">Diagnostic</a>
-                    <a href="solution.html">Solution RevX</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <p class="footer-copy">&copy; 2026 REVX Systems. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            const submitButton = form?.querySelector('.btn-submit');
-
-            if (!form) return;
-
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault();
-
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.classList.add('is-loading');
-                }
-
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        window.location.href = 'merci.html';
-                        return;
-                    }
-
-                    alert("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
-                } catch (error) {
-                    alert("Une erreur est survenue lors de l'envoi. Merci de réessayer.");
-                } finally {
-                    if (submitButton) {
-                        submitButton.disabled = false;
-                        submitButton.classList.remove('is-loading');
-                    }
-                }
-            });
-        });
-    </script>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="site-header" id="site-header">
+<div class="container nav-inner">
+<a aria-label="REVX Systems — Accueil" class="brand" href="index.html#accueil"><img alt="REVX Systems" class="brand-image" height="67" src="assets/revx-logo-original.png" width="174"/></a>
+<nav aria-label="Navigation principale" class="desktop-nav">
+<a href="index.html#accueil">Accueil</a>
+<a href="index.html#prestations">Prestations</a>
+<a href="index.html#solution">Solution REVX</a>
+<a class="" href="index.html#fonctionnement">Fonctionnement</a>
+</nav>
+<a class="nav-cta" href="#formulaire">Écrivez-nous <span aria-hidden="true">→</span></a>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button"><span></span><span></span><span></span></button>
+</div>
+<nav aria-label="Navigation mobile" class="mobile-nav" hidden="" id="mobile-nav">
+<a href="index.html#accueil">Accueil</a>
+<a href="index.html#prestations">Prestations</a>
+<a href="index.html#solution">Solution REVX</a>
+<a href="index.html#fonctionnement">Fonctionnement</a>
+<a class="mobile-contact-link" href="#formulaire">Écrivez-nous  →</a></nav>
+</header>
+<main id="contenu">
+<section aria-labelledby="contact-hero-title" class="contact-hero">
+<div aria-label="Poste de diagnostic et de programmation ECU en atelier" class="contact-hero-photo" role="img"></div>
+<div class="container contact-hero-inner">
+<div class="eyebrow eyebrow-light"><span class="bar"></span>CONTACT PROFESSIONNEL <span class="eyebrow-pipe">|</span> REVX SYSTEMS</div>
+<h1 id="contact-hero-title">Parlons de votre<br/>projet<span class="green-dot">.</span></h1>
+<p>Une prestation ECU, une question de compatibilité ou un équipement pour votre atelier ? Décrivez-nous votre besoin.</p>
+<a class="contact-scroll" href="#formulaire">Déposer une demande <span aria-hidden="true">↘</span></a>
+</div>
+<div aria-hidden="true" class="contact-hero-mark"><span>EXPERTISE ECU</span><span>POWERSPORTS</span><span>À DISTANCE</span></div>
+</section>
+<section aria-labelledby="form-title" class="contact-main" id="formulaire">
+<div class="container contact-layout">
+<aside aria-label="Informations de contact" class="contact-aside">
+<div class="eyebrow eyebrow-light"><span class="bar"></span>UN INTERLOCUTEUR DIRECT</div>
+<h2>Un échange<br/>précis<span class="green-dot">.</span><br/>Une réponse<br/>adaptée.</h2>
+<p>REVX s'adresse aux ateliers et professionnels du Powersports. Quelques informations suffisent pour étudier votre demande et vous orienter.</p>
+<div class="contact-aside-rule"></div>
+<span class="aside-overline">NOUS ÉCRIRE DIRECTEMENT</span>
+<a class="contact-email" href="mailto:contact@revx-systems.fr">contact@revx-systems.fr <span aria-hidden="true">↗</span></a>
+<div class="aside-help">
+<span class="aside-overline">POUR ALLER PLUS VITE</span>
+<p>Précisez si possible la marque, le modèle, l'année et la référence du calculateur. Ce n'est pas obligatoire.</p>
+</div>
+<div aria-hidden="true" class="aside-art"></div>
+</aside>
+<div class="form-panel">
+<div class="form-heading">
+<div class="eyebrow eyebrow-dark"><span class="bar"></span>VOTRE DEMANDE</div>
+<h2 id="form-title">Comment pouvons-nous<br/>vous accompagner<span class="green-dot"> ?</span></h2>
+<p>Décrivez votre projet ci-dessous. Les champs marqués * sont obligatoires.</p>
+</div>
+<form action="https://formsubmit.co/ajax/f67f0f01ff04d08fa01296d4150d11e1" class="contact-form" id="revx-contact-form" method="post">
+<!-- Configuration reprise du formulaire REVX fonctionnel fourni dans le kit. -->
+<input type="hidden" name="_subject" value="Nouvelle demande de projet - REVX Systems"/>
+<input type="hidden" name="_captcha" value="false"/>
+<input type="hidden" name="_template" value="table"/>
+<input type="hidden" name="_next" value="https://revx-systems.fr/merci.html"/>
+<div class="form-row">
+<div class="form-field"><label for="nom">Votre nom <span aria-hidden="true">*</span></label><input autocomplete="name" id="nom" maxlength="120" name="nom" placeholder="Nom et prénom" required="" type="text"/></div>
+<div class="form-field"><label for="societe">Société / atelier</label><input autocomplete="organization" id="societe" maxlength="160" name="societe" placeholder="Nom de votre établissement" type="text"/></div>
+</div>
+<div class="form-row">
+<div class="form-field"><label for="email">Adresse e-mail <span aria-hidden="true">*</span></label><input autocomplete="email" id="email" maxlength="254" name="email" placeholder="vous@entreprise.fr" required="" type="email"/></div>
+<div class="form-field"><label for="telephone">Téléphone <span class="field-hint">(facultatif)</span></label><input autocomplete="tel" id="telephone" maxlength="40" name="telephone" placeholder="Votre numéro" type="tel"/></div>
+</div>
+<div class="form-field">
+<label for="objet">Votre demande concerne <span aria-hidden="true">*</span></label>
+<div class="select-wrap"><select id="objet" name="objet" required="">
+<option disabled="" selected="" value="">Choisissez un sujet</option>
+<option value="prestation">Une prestation ECU (débridage, Stage 1, E85…)</option>
+<option value="solution">La solution REVX pour mon atelier</option>
+<option value="autre">Une autre question professionnelle</option>
+</select></div>
+</div>
+<div class="form-field"><label for="vehicule">Véhicule / calculateur <span class="field-hint">(si concerné)</span></label><input id="vehicule" maxlength="240" name="vehicule" placeholder="Marque, modèle, année, ECU si connu…" type="text"/></div>
+<div class="form-field"><label for="message">Votre message <span aria-hidden="true">*</span></label><textarea id="message" maxlength="5000" minlength="15" name="message" placeholder="Expliquez-nous votre besoin, le contexte et l'intervention souhaitée…" required="" rows="6"></textarea></div>
+<div aria-hidden="true" class="field-guard"><label for="site_internet">Site Internet</label><input autocomplete="off" id="site_internet" name="_honey" tabindex="-1" type="text"/></div>
+<div class="form-footer">
+<p>Vos coordonnées sont utilisées uniquement pour répondre à votre demande. <a href="confidentialite.html">Confidentialité ↗</a></p>
+<button class="btn btn-green form-submit" type="submit">Envoyer ma demande <span aria-hidden="true">→</span></button>
+</div>
+<div aria-live="polite" class="form-feedback" hidden="" id="form-feedback" role="status" tabindex="-1"></div>
+</form>
+</div>
+</div>
+</section>
+<section aria-label="Retour au site" class="contact-tail">
+<div class="container contact-tail-inner">
+<div><div class="eyebrow eyebrow-light"><span class="bar"></span>REVX SYSTEMS</div><p>L'expertise ECU au service des professionnels du Powersports.</p></div>
+<a class="contact-tail-link" href="index.html#accueil">Retour à l'accueil <span aria-hidden="true">↗</span></a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<a aria-label="Retour à l'accueil" class="footer-brand" href="index.html#accueil"><img alt="REVX Systems" height="39" src="assets/revx-logo-original.png" width="100"/></a>
+<nav aria-label="Pages légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></nav>
+<span class="footer-stamp">→  Professionnels uniquement</span>
+<span class="footer-year">© <span id="year">2026</span></span>
+</div>
+</footer>
 </body>
 </html>
