@@ -35,31 +35,42 @@
       return;
     }
     submit.disabled = true;
-    notice.hidden = true;
+    showMessage('Envoi en cours…');
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
+    // Une réponse lente ne prouve ni un succès ni un échec de l'envoi.
+    const slow = setTimeout(() => {
+      showMessage('L’envoi prend plus de temps que prévu. Patientez sans renvoyer le formulaire…');
+    }, 15000);
+    const timeout = setTimeout(() => controller.abort(), 60000);
     try {
       const response = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' },
         credentials: 'omit',
+        keepalive: true,
         signal: controller.signal
       });
+      if (!response.ok) throw new Error(`FormSubmit HTTP ${response.status}`);
       const ct = response.headers.get('Content-Type') || '';
       if (!ct.includes('application/json')) throw new Error('Réponse serveur inattendue');
       const result = await response.json();
-      // Une réponse JSON seule ne confirme pas l'envoi.
-      const confirmed = result?.success === true || result?.success === 'true';
-      if (!response.ok || !confirmed || result.ok === false || result.ok === 'false' || result.error) {
-        throw new Error('Envoi non confirmé par FormSubmit');
+      if (result?.success === false || result?.success === 'false' ||
+          result?.ok === false || result?.ok === 'false' || result?.error) {
+        showMessage('Le service d’envoi a refusé la demande. Vous pouvez réessayer ou écrire à contact@revx-systems.fr.', true);
+        return;
       }
+      // La page de remerciement exige une confirmation explicite du service.
+      const confirmed = result?.success === true || result?.success === 'true';
+      if (!confirmed) throw new Error('Envoi non confirmé par FormSubmit');
       window.location.assign('merci.html');
     } catch (error) {
-      showMessage('Votre demande n’a pas pu être transmise. Réessayez ou écrivez à contact@revx-systems.fr.', true);
-      submit.disabled = false;
+      console.warn('Formulaire contact : confirmation indisponible.', error);
+      showMessage('Nous n’avons pas reçu de confirmation d’envoi. Votre message a peut-être été transmis. Pour éviter un doublon, ne renvoyez pas immédiatement le formulaire. Vous pouvez nous contacter à contact@revx-systems.fr.', true);
     } finally {
+      clearTimeout(slow);
       clearTimeout(timeout);
+      submit.disabled = false;
     }
   });
 })();
