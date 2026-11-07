@@ -1,6 +1,6 @@
 {
-  "version": "0.8.6",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.6/RevX_Update.zip",
-  "hash": "5793459e7f06cd7d57af1e61e1e449b61c99c29e374f132d562cd32e05b43845",
-  "changelog": "- fix(ui): toggle jour/nuit en haut ├á droite de la fen├¬tre Param├¿tres\n- feat(ui): toggle jour/nuit dans la fen├¬tre Param├¿tres\n- fix(ui): bouton Param├¿tres bloqu├⌐ pendant une op├⌐ration\n- fix(settings): le garde r├⌐pare la paire SM2 avec DLL OP2\n- feat(ui): fen├¬tre Param├¿tres avec choix de l'interface\n- refactor(settings): interface cible en param├¿tre de la s├⌐lection du device\n- fix(settings): le garde respecte l'interface SM2 ou OP2\n- Night Theme 0.8.6\n- chore(diag): sonde [ZDiag] de l'ouverture de la fen├¬tre Select Vehicle / ECU\n- fix(splash): masquer le splash natif BitBox d├¿s son affichage (mode arri├¿re-plan)\n- fix(splash): minimiser BitBox d├¿s sa d├⌐tection en mode arri├¿re-plan\n- fix(splash): retirer les Activate() restants du splash RevX\n- chore(version): passage ├á la version 0.8.6\n- Mise ├á jour des donn├⌐es ECU\n- fix(popup): garder RevX au premier plan apr├¿s la fermeture d'un popup\n- docs(claude): journal par session avec rotation, finding #1 trait├⌐\n- fix(logger): un fichier journal par session, avec rotation\n- fix(splash): r├⌐affirmer le Topmost sans Activate pendant les mises ├á jour BitBox\n- fix(fermeture): supprimer l'interblocage de .Wait(3000) sur le thread UI"
+  "version": "0.8.7",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.7/RevX_Update.zip",
+  "hash": "a72eadabc2caf3f4cdf16a58e934c0a8d4e85b504b8100d08381a514bec1b972",
+  "changelog": "- feat(ui): refonte de la fen├¬tre Param├¿tres (en-t├¬te, cartes, pied)\n- chore: version 0.8.7\n- feat(ui): fond fonc├⌐ unique ├á la place du flou\n- fix(ui): le Flasher maximis├⌐ ne passe plus sous la barre des t├óches"
 }
