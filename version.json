@@ -1,6 +1,6 @@
 {
-  "version": "0.8.7",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.7/RevX_Update.zip",
-  "hash": "a72eadabc2caf3f4cdf16a58e934c0a8d4e85b504b8100d08381a514bec1b972",
-  "changelog": "- feat(ui): refonte de la fen├¬tre Param├¿tres (en-t├¬te, cartes, pied)\n- chore: version 0.8.7\n- feat(ui): fond fonc├⌐ unique ├á la place du flou\n- fix(ui): le Flasher maximis├⌐ ne passe plus sous la barre des t├óches"
+  "version": "0.8.8",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.8/RevX_Update.zip",
+  "hash": "c264b536e3e8da8e607d325c57bc707a021dc8782d56001dbaae2c068381d849",
+  "changelog": "- RevX demande désormais votre accord avant d'installer une mise à jour\n- Les nouveautés de chaque version s'affichent après la mise à jour\n- Téléchargement des mises à jour plus fiable sur les connexions lentes\n- Addition : Mode jour / Interface OP TX RevX / Correction de bugs"
 }
