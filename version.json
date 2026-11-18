@@ -1,6 +1,6 @@
 {
-  "version": "0.8.8",
-  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.8/RevX_Update.zip",
-  "hash": "c264b536e3e8da8e607d325c57bc707a021dc8782d56001dbaae2c068381d849",
-  "changelog": "- RevX demande désormais votre accord avant d'installer une mise à jour\n- Les nouveautés de chaque version s'affichent après la mise à jour\n- Téléchargement des mises à jour plus fiable sur les connexions lentes\n- Addition : Mode jour / Interface OP TX RevX / Correction de bugs"
+  "version": "0.8.9",
+  "url": "https://github.com/RevX-Systems/RevX-Setup/releases/download/v0.8.9/RevX_Update.zip",
+  "hash": "c5c8ecad563fc66a49e1d0b9313675fbb44a7178fb929b18d64d4b2e6b4325a0",
+  "changelog": "RevX Diag (bêta)\n- Nouveau module de diagnostic, accessible depuis l'écran d'accueil\n- Lecture et effacement des codes défaut, données moteur en temps réel\n- Compatible avec vos deux interfaces RevX\n- Véhicules Segway pris en charge, sauf AT6 et SX20\n- HY500X pris en charge\n- Version bêta, vos retours m'aident à l'améliorer\n\nPremier lancement de RevX Diag\n- Windows peut afficher une fenêtre, proposant d'installer \".NET Desktop Runtime 10\"\n\nMises à jour\n- RevX demande votre accord avant d'installer une mise à jour\n- Les nouveautés de chaque version s'affichent après l'installation\n- Téléchargement plus fiable sur les connexions lentes\n\nAutres améliorations\n- Nouveau mode jour\n- Prise en charge de l'interface OP TX RevX\n- Corrections de bugs"
 }
